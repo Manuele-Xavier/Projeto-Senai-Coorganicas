@@ -32,7 +32,7 @@ header {
 }
 
 .logo {
-    padding-top: 10px;
+    padding-top: 5px;
     display: flex;
     align-items: center;
 }
@@ -54,7 +54,7 @@ header {
 
 .menu nav a {
     display: block;
-    padding: 15px;
+    padding: 5px 15px;
     text-decoration: none;
     text-transform: uppercase;
     color:var(--vermelho);
@@ -106,6 +106,10 @@ footer {
 footer p{
   font-size: 1.2em;
 }
+.contatos, .redes_sociais, .projeto {
+    width: 250px;
+    font-size: 1.2em;
+}
 
 footer h3{
     text-align: center;
@@ -113,9 +117,6 @@ footer h3{
     font-size: 1.5em;
 }
 
-.contatos, .redes_sociais, .projeto {
-    width: 250px;
-}
 
 .redesImg  {
     text-align: center;
@@ -183,7 +184,7 @@ footer h3{
 
     .logo {
         padding-top: 5px;
-        padding-left: 20px;
+        padding-left: 15px;
     }
 
     .logooriginal{
@@ -194,8 +195,8 @@ footer h3{
 /****** Tablets  */
 
 /* Smartphones */
-@media(max-width:767px) {
-
+@media(max-width:785px) {
+    
     .container {
         flex-direction: column;
     }

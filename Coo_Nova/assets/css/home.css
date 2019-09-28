@@ -14,6 +14,8 @@
     background-position: center;
     background-size: cover;
     height: 620px;
+    border-bottom: 2px solid #cccccc;
+    border-top: 2px solid #cccccc;
 }
 
 #banner .container {
@@ -104,3 +106,136 @@
 .saiba_mais {
     text-align: center;
 }
+
+.procedencias {
+    display: flex;
+    justify-content: center;
+}
+
+.procedenciasInt {
+    flex: 1;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 30px 20px;
+    -webkit-box-shadow: 4px 4px 10px 6px rgba(163,158,163,1);
+    -moz-box-shadow: 4px 4px 10px 6px rgba(163,158,163,1);
+    box-shadow: 4px 4px 10px 6px rgba(163,158,163,1);
+    border-radius: 4px;
+}
+.title_procedencia {
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--laranja);
+    font-weight: 900;
+}
+
+.icone {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.procedenciasInt img{
+    height: 100px;
+    text-align: center;
+}
+
+.procedenciasInt p {
+    line-height: 1.6em;
+    text-align: justify;    
+}
+
+.conteudo_principal {
+    display: flex;
+    justify-content: center;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.widget {
+    padding: 20px;
+ }
+ 
+ .widget_title {
+     margin: 20px;
+   
+ }
+ 
+ .widget_title_text {
+     color:var(--laranja);
+     font-size:2.2em;
+     font-weight: bold;
+     padding: 0 35px;
+ }
+ 
+ .widget_title_bar {
+     width: 130px;
+     margin-left: 35px;
+     height: 2px;
+     background-color: var(--cinza-fonte);
+     margin-top:5px;
+ }
+ 
+ article {
+     flex:1;
+     min-width: 250px;
+     padding: 30px 50px;
+ }
+ 
+ article a {
+     text-decoration: none;
+ }
+ 
+ article .news_data {
+     display: flex;
+     padding: 5px;
+ }
+ 
+ article .news_posted_at {
+     background-color:var(--verde);
+     color: white;
+     font-size:14px;
+     padding: 10px;
+     margin-right: 3px;
+     font-weight: 600;
+ }
+ 
+ article .news_comments {
+     background-color: var(--verde);
+     color: white;
+     font-size:14px;
+     font-weight: 600;
+     padding: 10px;    
+ }
+ article .news_thumbnail {
+     margin-top:30px;
+ }
+ article .news_thumbnail img {
+     width: 100%;
+     height: 300px;   
+ }
+ 
+ article .news_title {
+     padding: 0 10px;
+     margin-top: 10px;
+     margin-bottom: 10px;
+     color:var(--laranja);
+     font-weight: bold;
+     font-size:2.0em;
+     text-align:center;
+ }
+ 
+ article .news_resume {
+     padding: 0 10px;
+     font-size: 1.3em;
+     color:#5c5c5c;
+     line-height: 1.5em;
+     margin-bottom: 30px;
+ }
+ 
+ 
