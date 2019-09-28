@@ -56,7 +56,7 @@ header {
     display: block;
     padding: 5px 15px;
     text-decoration: none;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     color:var(--vermelho);
     font-weight: bold;
     font-size: 1.5em;
@@ -195,7 +195,7 @@ footer h3{
 /****** Tablets  */
 
 /* Smartphones */
-@media(max-width:785px) {
+@media(max-width:840px) {
     
     .container {
         flex-direction: column;
@@ -230,6 +230,21 @@ footer h3{
     }
     
     /****** Menu  */
+
+    /* Quem Somos */
+    .sobre {
+        flex-direction: column;
+    }
+
+    .texto_sobre {
+        padding-left: 70px;
+        padding-top: 20px;
+    }
+    
+    .texto_sobre p {
+        width: 450px;
+    }
+    /****** Quem Somos  */
 
     /* Rodapé */    
     .container_rodape {

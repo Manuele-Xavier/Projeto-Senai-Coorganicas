@@ -1,3 +1,4 @@
 @charset "UTF-8";
-@import url("menu_footer.css");
+@import url("./menu_footer_e_responsivo.css");
 @import url("home.css");
+@import url("quemsomos.css");

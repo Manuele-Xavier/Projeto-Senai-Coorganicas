@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap');
+:root{
+    --fundo:#EFF3F6;
+    --cinza-fonte:#707070;
+    --vermelho:#BF0404;
+    --verde:#89A61F;
+    --laranja:#F29F05;
+}
+
+#banner_quemsomos {
+    background-image: url(../images/maaaao.jpg);
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-size: 40px;
+}
+
+
+.banner_headline_quemsomos h1 {
+    color: #D3DADF;
+    font-size: 2.0em;
+    text-shadow: 0px 1px 0px #555555;
+    font-weight: 100;
+    padding: 20px;
+    max-width: 400px;
+}
+
+.banner_headline_quemsomos h2 {
+    color: #D3DADF;
+    font-size: 1.2em;
+    font-weight: 100;
+    text-shadow: 0px 1px 0px #cccccc;
+    padding: 0 22px;
+    max-width: 600px;
+  
+}
+
+.visao_valores {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0; 
+}
+
+.titulo_quemsomos {
+    text-align: center;
+    font-size: 3.0em;
+    margin-top: 60px;
+    color:var(--cinza-fonte);
+    font-weight: bold;
+}
+
+.sobre {
+    display: flex;
+}
+
+.imagemsobre {
+    padding: 0 35px;
+}
+
+.imagemsobre img {
+    border-radius: 5px;
+}
+
+.texto_sobre h3 {
+    font-size: 2.6em;
+    padding-bottom: 15px;
+    color:var(--laranja);
+    
+}
+
+.texto_sobre h4 {
+    font-size: 2.0em;
+    padding-top: 15px;
+    color: var(--verde);
+}
+
+.texto_sobre p {
+    font-size: 1.3em;
+}
+
+.comunidade {
+    display: flex;
+    justify-content: center;
+    background-color:#894F2A;
+    opacity: 0.57;
+}
+
+.comentarios {
+    padding: 50px;
+}
+
+.comentarios h5 {
+    font-size: 2.4em;
+    padding-top: 15px;
+    color: var(--verde);
+    text-align: center;
+    font-weight: 900;
+}
+
+.comentarios p {
+    font-size: 1.6em;
+    max-width: 400px;
+    padding: 20px 0;
+    color: #D3DADF;
+}
+
+.comentarios div {
+    text-align: center;
+    font-size: 1.4em;
+    color: black;
+    font-weight: 900;
+}
+  
+  
