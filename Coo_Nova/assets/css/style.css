@@ -29,6 +29,7 @@ header {
     display: flex;
     justify-content: center;
     padding: 20px 10px;
+    
 }
 
 .logo {
@@ -98,7 +99,7 @@ header {
 }
 
 footer {
-    padding: 0px 0px;
+    padding: 20px 0px;
     width: 100%;
     background-color: #D3DADF;
     
@@ -511,6 +512,106 @@ footer h3{
 }
 
 /**Quem somos**/
+
+/*Produtos*/
+
+.container_produto{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    width: 1000px;
+    align-items: center;
+}
+.espaço_busca{
+    padding-top: 30px;
+}
+.form_busca{
+    width: 800px;
+    height: 40px;
+    border-radius: 4px;
+    border:none;
+    
+    
+}
+.filtro{
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+    align-items: center;
+    padding-bottom: 30px;
+    
+    
+
+}
+select{
+    width: 200px;
+    height: 35px;
+    border-radius: 4px;
+    border:none;
+    
+}
+
+.btn{
+    font-weight: 500;
+    border-radius: 4px;
+    -webkit-box-shadow: 1px 1px 1px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 1px 1px 1px 0px rgba(204,204,204,1);
+    box-shadow: 1px 1px 1px 0px rgba(204,204,204,1);
+    background-color: #BF0404;
+    border:none;
+    width: 100px;
+    height: 30px;
+    color:white;
+  }
+  .btn a{
+    color:white;
+    text-decoration: none; 
+  }
+  .produtos_todo{
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 1000px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .card_produtos{
+    width: 300px;
+    
+  }
+  .card_produtos img{
+      width: 300px;
+  }
+  .card_btn{
+    padding: 30px 0px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 300px;
+  }
+
+  .paginacao{
+    display:flex;
+    justify-content:space-around;
+    width:200px;
+    padding:50px 0px;
+  }
+  .paginacao a{
+    text-decoration: none;
+    list-style: none;
+    background-color:#FFFFFF;
+    border-radius:4px;
+    border:none;
+    font-size:1.0em;
+    padding:5px;
+    color:#707070;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+    box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+  }
+/*Produtos*/
 
 /****** Tablets  */
 
