@@ -735,6 +735,45 @@ select{
 
 /*login*/
 
+/*perfil1*/
+
+
+.esquerdo{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100%;
+    font-size: 1.3em;
+    padding-top:20px ;
+    border-right: #BF0404 3px solid;
+    
+  }
+  .menu_perfil{
+    
+  
+    color: var(--cinza-fonte);
+    text-align: center;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    list-style: none;
+    line-height: 4.0em;
+    
+        
+  }
+  .menu_perfil li{
+      list-style: none;
+  }
+  .menu_perfil a{
+    text-decoration: none;
+    color: #707070;
+    font-size: 1.5em;
+    list-style: none;
+  }
+/*perfil1*/
+
 /****** Tablets  */
 
 /* Smartphones */
