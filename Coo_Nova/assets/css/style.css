@@ -738,6 +738,10 @@ select{
 /*perfil1*/
 
 
+.container_perfil{
+    display: flex;
+    justify-content: space-between;
+}
 .esquerdo{
     display: flex;
     flex-direction: column;
@@ -746,6 +750,7 @@ select{
     font-size: 1.3em;
     padding-top:20px ;
     border-right: #BF0404 3px solid;
+    position:fixed;
     
   }
   .menu_perfil{
@@ -753,11 +758,9 @@ select{
   
     color: var(--cinza-fonte);
     text-align: center;
-   
     display: flex;
     justify-content: center;
     align-items: center;
-    height: auto;
     list-style: none;
     line-height: 4.0em;
     
