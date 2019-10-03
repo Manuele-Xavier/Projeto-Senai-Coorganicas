@@ -669,7 +669,6 @@ select{
     width: 1000px;
     padding-top: 30px;
     line-height: 3.5em;
-    
    
 }
 .entrar_login input{
@@ -736,11 +735,11 @@ select{
 /*login*/
 
 /*perfil1*/
-
-
 .container_perfil{
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    margin:auto;
 }
 .esquerdo{
     display: flex;
@@ -750,21 +749,23 @@ select{
     font-size: 1.3em;
     padding-top:20px ;
     border-right: #BF0404 3px solid;
-    position:fixed;
     
   }
   .menu_perfil{
-    
-  
     color: var(--cinza-fonte);
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     list-style: none;
-    line-height: 4.0em;
-    
-        
+    line-height: 4.0em; 
+    height: 100%;  
+  }
+  .direito1{
+      display: flex;
+      justify-content: space-between;
+      margin: auto;
+      width: 70%;
   }
   .menu_perfil li{
       list-style: none;
@@ -774,6 +775,42 @@ select{
     color: #707070;
     font-size: 1.5em;
     list-style: none;
+  }
+  .menu_perfil img{
+    width: 200px;
+  }
+  #formcadastro{
+    margin: auto;
+    
+  }
+  .form1, .form2{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    line-height: 3.5em;
+    padding-bottom: 20px;
+  }
+  .form1 input, .form2 input{
+    width: 250px;
+    height: 50px;
+    border-radius:4px;
+    border:none;
+    color:#707070;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+    box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+    display: flex;
+    justify-content: flex-end;
+  }
+  .divisao{
+    display: flex;
+    justify-content: space-between;
+    width: 460px;
+    margin-left: 146px
+
+  }
+  .alinhamento{
+    font-size: 1.3em;
   }
 /*perfil1*/
 
