@@ -99,13 +99,13 @@ header {
 }
 
 footer {
-    padding: 20px 0px;
+    padding-top: 20px;
     width: 100%;
     background-color: #D3DADF;
     
 }
 footer p{
-  font-size: 17px;
+  font-size: 20px;
 }
 .contatos, .redes_sociais, .projeto {
     width: 250px;
@@ -129,9 +129,9 @@ footer h3{
 
 
 .projeto p {
-    text-align: justify;
+    width: 205px;
     line-height: 1.5em;
-    padding: 5px 10px;
+    padding-left: 25px;
 }
 
 .contatos p {
@@ -443,10 +443,17 @@ footer h3{
 
 .titulo_quemsomos {
     text-align: center;
-    font-size: 3.0em;
     margin-top: 60px;
     color:var(--cinza-fonte);
     font-weight: bold;
+}
+
+.titulo_quemsomos h1{
+    font-size: 3.5em;
+}
+
+.titulo_quemsomos h2{
+    font-size: 2.5em;
 }
 
 .sobre {
@@ -462,14 +469,14 @@ footer h3{
 }
 
 .texto_sobre h3 {
-    font-size: 2.6em;
+    font-size: 2.2em;
     padding-bottom: 15px;
     color:var(--laranja);
     
 }
 
 .texto_sobre h4 {
-    font-size: 2.0em;
+    font-size: 1.8em;
     padding-top: 15px;
     color: var(--verde);
 }
@@ -481,18 +488,22 @@ footer h3{
 .comunidade {
     display: flex;
     justify-content: center;
-    background-color:#894F2A;
-    opacity: 0.57;
+    margin-top: 80px;
+    margin-bottom: 100px;
 }
 
 .comentarios {
     padding: 50px;
+    -webkit-box-shadow: 5px 5px 15px 15px rgba(227,224,227,1);
+    -moz-box-shadow: 5px 5px 15px 15px rgba(227,224,227,1);
+    box-shadow: 5px 5px 15px 15px rgba(227,224,227,1);
+    
 }
 
 .comentarios h5 {
     font-size: 2.4em;
     padding-top: 15px;
-    color: var(--verde);
+    color: var(--laranja);
     text-align: center;
     font-weight: 900;
 }
@@ -501,7 +512,7 @@ footer h3{
     font-size: 1.6em;
     max-width: 400px;
     padding: 20px 0;
-    color: #D3DADF;
+    color: var(--cinza-fonte);
 }
 
 .comentarios div {
@@ -841,10 +852,62 @@ align-items: center;
 /* perfil configuração*/
 
 
+
+/* Tablets */
+@media(max-width:1169px){
+    .container_rodape {
+        width: 800px;
+        padding: 20px;
+    }
+
+    /* Menu */
+    .logo img {
+        width: 270px;
+        padding-left: 10px;
+        padding-right: 0px;
+    }
+
+    .menu nav a {   
+        font-size: 1.3em;
+    }
+    /****** Menu */
+
+    /* Quem Somos */
+      .imagemsobre img {
+        width: 400px;
+    }  
+   
+    /****** Quem Somos  */
+    
+
+    /* Produto */
+    .container_produto {
+       width: 800px;      
+    }
+
+    .produtos_todo {
+        width: 710px;
+    }
+
+    .form_busca {
+        width: 650px;
+     }  
+
+     .filtro {
+        width: 620px;       
+     }
+
+    .filtro select, .filtro label {
+        margin-left: 20px;
+    }
+    /****** Produto  */
+}
+
+
 /****** Tablets  */
 
 /* Smartphones */
-@media(max-width:840px) {
+@media(max-width:845px) {
     
     .container {
         flex-direction: column;
@@ -881,18 +944,33 @@ align-items: center;
     /****** Menu  */
 
     /* Quem Somos */
+    .imagemsobre img {
+        width: 400px;
+    }
+
     .sobre {
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .texto_sobre {
-        padding-left: 70px;
         padding-top: 20px;
     }
     
     .texto_sobre p {
-        width: 450px;
+        width: 350px;
     }
+
+    .visao_valores .container{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .comentarios p {
+        width: 330px;
+    }
+   
     /****** Quem Somos  */
 
     /* Rodapé */    
@@ -916,10 +994,45 @@ align-items: center;
     }
 
     .projeto p {
-        width: 160px;
         padding-left:60px; 
     }
     /****** Rodapé  */
+
+    /* Footer */
+    footer {
+        padding-top: 0px;
+    }
+
+    /****** Footer */
+
+
+    /* Produto */
+    .container_produto {       
+        width: 400px; 
+     }
+ 
+     .produtos_todo {
+        justify-content: center;
+        align-items: center;
+         width: 400px;
+     }
+
+     .form_busca {
+        width: 350px;
+     }  
+
+     .filtro {
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+     }
+
+     .filtro select, .filtro label {
+         margin-top: 20px;
+     }
+     /****** Produto */
 }
 /****** Smartphones  */
 
