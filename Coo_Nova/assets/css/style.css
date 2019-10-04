@@ -907,6 +907,13 @@ box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
     height: 4vh
 
 }
+.btn_perfilespa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:102%;
+    padding: 10px 0px;
+}
 
 /*perfil2 e 3*/
 /* perfil configuração*/
@@ -1114,6 +1121,66 @@ align-items: center;
          margin-top: 20px;
      }
      /****** Produto */
+     /**perfil1**/
+     .direito1,.form_cadaspro {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         margin: auto;
+     }
+     .form1,.form2{
+        width: 300px;
+        margin:auto;
+        display: flex;
+         justify-content: center;
+         align-items: center;
+     }
+     .divisao{
+       display: flex;
+       width: 300px;
+       margin-left: 57px;
+       padding-bottom: 10px;
+     }
+     /**perfil1**/
+     /**perfil2e3**/
+
+     .menu_perfil{
+         display: none;
+     }
+     .esquerdo{
+        display: none; 
+     }
+    .container_perfil{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+    .products{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40%
+    }
+    .formdi_busca input{
+        width: 80vw;
+    }
+    .imp_perfil{
+        width: 10vw;
+    }
+    /**perfil2e3**/
+
+    /**perfilconfiguração**/
+    .configuracao, #form_cadastro_conf input {
+        width: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /**perfilconfiguração**/
+
 }
 /****** Smartphones  */
 
