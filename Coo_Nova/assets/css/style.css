@@ -309,7 +309,8 @@ footer h3{
 
 .procedenciasInt p {
     line-height: 1.6em;
-    text-align: justify;    
+    font-size: 18px;
+    text-align: justify;   
 }
 
 .conteudo_principal {
@@ -401,6 +402,7 @@ footer h3{
      color:#5c5c5c;
      line-height: 1.5em;
      margin-bottom: 30px;
+     text-align: justify;
  }
 
 /**Home***/
@@ -911,7 +913,7 @@ box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
     display: flex;
     justify-content: center;
     align-items: center;
-    width:102%;
+    width:100%;
     padding: 10px 0px;
 }
 
@@ -989,6 +991,62 @@ align-items: center;
         margin-left: 20px;
     }
     /****** Produto  */
+
+    /* Login */
+    .container_login{
+        width: 800vw;        
+    }
+
+    .entrar_login {
+        width: 800px;
+    }
+
+    .cadastro_login {
+        width: 830px;
+    }
+
+    .banner_login {
+        background-position:center;
+    }
+    /****** Login  */
+
+    /*perfil*/
+    .container_perfil,.form_cadaspro {
+        width:800px;
+
+    }
+    .form1,.form2{
+        width: 400px;
+    }
+    #formcadastro input{
+        width: 200px;
+
+    }
+    .divisao{
+        margin-left: 167px;
+        width: 383px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .menu_perfil, .esquerdo{
+        display: none;
+    }
+    /*perfil1*/
+
+    /*perfil 2 e 3*/
+
+    .direito2,.products{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 800px;
+        
+        
+    }
+    
+
+    /*perfil 2 e 3*/
 }
 
 
@@ -1156,6 +1214,7 @@ align-items: center;
         justify-content: center;
         align-items: center;
         margin: auto;
+        width: 300px;
     }
     .products{
         display: flex;
@@ -1180,6 +1239,65 @@ align-items: center;
     }
     
     /**perfilconfiguração**/
+
+
+    /* Login */
+    .container_login{
+        width: 400vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;        
+    }
+
+    .entrar_login {
+        width: 300px;
+
+    }
+
+    .entrar_login input {
+        width: 310px;
+    }
+    .t_login {
+       padding-left: 50px;
+        
+    }
+
+    .btn {
+        margin-left: 110px;
+        height: 40px;
+    }
+    
+    .espaco {
+        width: 420px;
+    }
+
+    .radius {
+        width: 250px;
+    }
+
+    .cadastro_login {
+        width:400px;
+    }
+
+    .cadastro_login button {
+        margin-right: 150px;
+    }
+
+    .banner_login {
+        background-position:center;
+    }
+
+    .in_login {
+        width: 380px;
+    }
+
+    .btn_cadastro_mobile {
+        width: 290px;
+        margin-left: 30px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    /****** Login  */
 
 }
 /****** Smartphones  */
