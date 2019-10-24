@@ -1,0 +1,92 @@
+CREATE DATABASE Coorganicas;
+
+USE Coorganicas;
+
+/*** CRIAÇÃO DAS TABELAS COORGÂNICAS ***/
+
+CREATE TABLE Tipo_Usuario
+(
+	Tipo_usuario_id INT IDENTITY PRIMARY KEY NOT NULL,
+	Tipo VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE Produto
+(
+	Produto_id INT IDENTITY PRIMARY KEY NOT NULL,
+	Nome VARCHAR(255) NOT NULL,
+	Imagem_Produto VARBINARY(MAX),
+	Descricao VARCHAR(255) NOT NULL
+);
+
+/*
+ALTER TABLE Produto ADD Imagem_Produto VARBINARY(MAX);
+SELECT * FROM Produto
+*/
+
+CREATE TABLE Usuario
+(
+	Usuario_id INT IDENTITY PRIMARY KEY NOT NULL,
+	Nome VARCHAR(255) NOT NULL,
+	CNPJ CHAR(14) UNIQUE NOT NULL,
+	Senha VARCHAR(255) NOT NULL,
+	Email VARCHAR(255) UNIQUE NOT NULL,
+	Imagem_Usuario  VARBINARY(MAX),
+	Tipo_usuario_id INT FOREIGN KEY REFERENCES Tipo_Usuario(Tipo_usuario_id)
+);
+
+/*
+ALTER TABLE Usuario ADD Imagem_Usuario VARBINARY(MAX);
+SELECT * FROM Usuario
+*/
+
+CREATE TABLE Telefone
+(
+	Telefone_id INT IDENTITY PRIMARY KEY NOT NULL,
+	Telefone VARCHAR(255),
+	Usuario_id INT FOREIGN KEY REFERENCES Usuario(Usuario_id)
+);
+
+CREATE TABLE Receita
+(
+	Receita_id INT IDENTITY PRIMARY KEY NOT NULL,
+	Titulo VARCHAR(255) NOT NULL,
+	Conteudo TEXT NOT NULL,
+	Usuario_id INT FOREIGN KEY REFERENCES Usuario(Usuario_id)
+);
+
+
+CREATE TABLE Endereco
+(
+	Endereco_id INT IDENTITY PRIMARY KEY NOT NULL,
+	Cep CHAR(8) NOT NULL,
+	Endereco VARCHAR(255) NOT NULL,
+	Numero INT,
+	Usuario_id INT FOREIGN KEY REFERENCES Usuario(Usuario_id)
+);
+
+CREATE TABLE Oferta
+(
+	Oferta_id INT IDENTITY PRIMARY KEY NOT NULL,
+	Preco MONEY NOT NULL,
+	Cidade VARCHAR(255) NOT NULL,
+	Validade DATE NOT NULL,
+	Quantidade FLOAT NOT NULL,
+	Regiao VARCHAR(255) NOT NULL,
+	Usuario_id INT FOREIGN KEY REFERENCES Usuario(Usuario_id),
+	Produto_id INT FOREIGN KEY REFERENCES Produto(Produto_id)
+);
+
+CREATE TABLE Reserva
+(
+	Reserva_id INT IDENTITY PRIMARY KEY NOT NULL,
+	Data_Reserva DATETIME DEFAULT GETDATE() NOT NULL,
+	Quantidade FLOAT NOT NULL,
+	Data_Espera DATETIME,
+	Status_Reserva VARCHAR(255) NOT NULL,
+	Usuario_id INT FOREIGN KEY REFERENCES Usuario(Usuario_id),
+	Oferta_id INT FOREIGN KEY REFERENCES Oferta(Oferta_id)
+
+);
+
+/*** CRIAÇÃO DAS TABELAS COORGÂNICAS ***/
