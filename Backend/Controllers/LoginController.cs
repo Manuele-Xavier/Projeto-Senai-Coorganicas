@@ -6,6 +6,7 @@ using System.Text;
 using Backend.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
@@ -29,12 +30,12 @@ namespace Backend_Cooganicas.Controllers
 
         // Chamamos nosso método para validar o usuário na aplicação, verificando se ele existe em nosso banco de dados
         private Usuario ValidaUsuario(Usuario login) {
-            var usuario = _contexto.Usuario.FirstOrDefault(
+            var usuario = _contexto.Usuario.Include(x => x.TipoUsuario).FirstOrDefault(
                 u => u.Email == login.Email && u.Senha == login.Senha
             );
 
-            if(usuario != null) {
-                usuario = login;
+            if(usuario == null) {
+                return null;
             }
 
             return usuario;
@@ -52,7 +53,9 @@ namespace Backend_Cooganicas.Controllers
             var claims = new[] {
                 new Claim(JwtRegisteredClaimNames.NameId, userInfo.Nome),
                 new Claim(JwtRegisteredClaimNames.Email, userInfo.Email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(ClaimTypes.Role,userInfo.TipoUsuario.Tipo)
+     
             };
 
             // Configuramos nosso Token e seu tempo de vida

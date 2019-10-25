@@ -4,16 +4,18 @@ using Backend.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Backend.Controllers {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    // [Authorize]
     public class UsuarioController : ControllerBase
     {
         CoorganicasContext _contexto = new CoorganicasContext();
 
         //GET: api/Usuario
+        [Authorize(Roles = "Administrador")]
         [HttpGet]
         public async Task<ActionResult<List<Usuario>>> Get(){
             //FindAsync = procurar algo especifico no banco
@@ -39,13 +41,20 @@ namespace Backend.Controllers {
         }
 
         //POST api/Usuario
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         public async Task<ActionResult<Usuario>> Post (Usuario usuario) {
             try {
                 //Tratamos contra ataques de SQL Injection
                 await _contexto.AddAsync(usuario);
-                //Salvamos efetivamente o nosso objeto no banco de dados
-                await _contexto.SaveChangesAsync();
+                if(ValidaCNPJ(usuario.Cnpj)==true){
+                    //Salvamos efetivamente o nosso objeto no banco de dados
+                    await _contexto.SaveChangesAsync();
+                }
+                else{
+                    return BadRequest();
+                }
+                
 
             } catch (DbUpdateConcurrencyException) {
                 throw;
@@ -96,6 +105,61 @@ namespace Backend.Controllers {
             await _contexto.SaveChangesAsync ();
 
             return usuario;
+        }
+        static bool ValidaCNPJ(string cnpjUsuario){
+
+            bool resultado = false;
+            
+            int[] v1 = {5,4,3,2,9,8,7,6,5,4,3,2};
+
+            string cnpjCalculo = "";
+            string digito_v1 = "";
+            string digito_v2 = "";
+
+            int resto = 0;
+            int calculo = 0;
+
+            cnpjCalculo = cnpjUsuario.Substring(0,12);
+
+            for(int i=0; i<= 11; i++){
+                calculo += int.Parse(cnpjCalculo[i].ToString()) * v1[i];
+            }
+
+            resto = calculo % 11;
+            calculo = 11 - resto;
+
+            if(calculo < 2 ){
+                digito_v1 = "0";
+            }else{
+                digito_v1 = calculo.ToString();
+            }
+            if(digito_v1 == cnpjUsuario[12].ToString()){
+                resultado = true;
+            }
+
+            int[] v2 = {6,5,4,3,2,9,8,7,6,5,4,3,2};
+            resto = 0;
+            cnpjCalculo = cnpjCalculo + calculo.ToString();
+            calculo = 0;
+
+            for(int i=0; i <=12; i++){
+                calculo += int.Parse(cnpjCalculo[i].ToString())*v2[i];
+            }
+
+            resto = calculo % 11;
+            calculo = 11 - resto;
+
+            if(calculo < 2 ){
+                digito_v2 = "0";
+            }else{
+                digito_v2 = calculo.ToString();
+            }
+            if(digito_v2 == cnpjUsuario[13].ToString()){
+                resultado = true;
+            }
+
+            return resultado;
+
         }
     }
 }

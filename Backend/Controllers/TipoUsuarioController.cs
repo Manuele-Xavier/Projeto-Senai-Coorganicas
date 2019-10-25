@@ -37,6 +37,7 @@ namespace Backend.Controllers {
         }
 
         //POST api/TipoUsuario
+
         [HttpPost]
         public async Task<ActionResult<TipoUsuario>> Post (TipoUsuario tipoUsuario) {
             try {
