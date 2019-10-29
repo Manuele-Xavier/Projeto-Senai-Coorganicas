@@ -1,8 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http.Headers;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Backend.Models;
+using Backend_Cooganicas.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Backend.Controllers {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Comunidade")]
+    [Authorize(Roles = "Administrador")]
     public class ReceitaController : ControllerBase 
     {
         CoorganicasContext _contexto = new CoorganicasContext();
@@ -42,25 +45,38 @@ namespace Backend.Controllers {
 
         //POST api/Receita
         [HttpPost]
-        public async Task<ActionResult<Receita>> Post ([FromForm]Receita Receita) {
+        public async Task<ActionResult<Receita>> Post ([FromForm]Receita receita) {
             try {
-                var file = Request.Form.Files[0];
-                var folderName = Path.Combine ("Imagens");
-                var pathToSave = Path.Combine (Directory.GetCurrentDirectory (), folderName);
-
-                if (file.Length > 0) {
+                if (Request.Form.Files.Count > 0) {
+                    
+                    var file = Request.Form.Files[0];
+                    var folderName = Path.Combine ("Imagens");
+                    var pathToSave = Path.Combine (Directory.GetCurrentDirectory (), folderName);
                     var fileName = ContentDispositionHeaderValue.Parse (file.ContentDisposition).FileName.Trim ('"');
                     var fullPath = Path.Combine (pathToSave, fileName);
                     var dbPath = Path.Combine (folderName, fileName);
 
                     using (var stream = new FileStream (fullPath, FileMode.Create)) {
                         file.CopyTo (stream);
-                    }
-                    
-                   Receita.ImagemReceita = fileName;
-                }
+                    }            
+
+                   receita.ImagemReceita = fileName;
+                   receita.Titulo = Request.Form["Titulo"];
+                   receita.Conteudo = Request.Form["Conteudo"];
+                   receita.UsuarioId = LoginController.UsuarioLogado;
+                  
+
+                } else {
+                   return NotFound(
+                    new
+                    {
+                        Mensagem = "Atenção a imagem não foi selecionada!",
+                        Erro = true
+                    });        
+                }          
+                
                 //Tratamos contra ataques de SQL Injection
-                await _contexto.AddAsync(Receita);
+                await _contexto.AddAsync(receita);
                 //Salvamos efetivamente o nosso objeto no banco de dados
                 await _contexto.SaveChangesAsync();
 
@@ -68,7 +84,7 @@ namespace Backend.Controllers {
                 throw;
             }
 
-            return Receita;
+            return receita;
         }
 
         [HttpPut ("{id}")]

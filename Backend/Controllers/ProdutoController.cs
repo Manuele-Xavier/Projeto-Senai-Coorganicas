@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Backend.Controllers {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Agricultor")]
+    [Authorize(Roles = "Administrador")]
     public class ProdutoController : ControllerBase
     {
         CoorganicasContext _contexto = new CoorganicasContext();
@@ -44,21 +44,35 @@ namespace Backend.Controllers {
         [HttpPost]
         public async Task<ActionResult<Produto>> Post ([FromForm]Produto produto) {
             try {
-                var file = Request.Form.Files[0];
-                var folderName = Path.Combine ("Imagens");
-                var pathToSave = Path.Combine (Directory.GetCurrentDirectory (), folderName);
-
-                if (file.Length > 0) {
+                 if (Request.Form.Files.Count > 0) {
+                    
+                    var file = Request.Form.Files[0];
+                    var folderName = Path.Combine ("Imagens");
+                    var pathToSave = Path.Combine (Directory.GetCurrentDirectory (), folderName);
                     var fileName = ContentDispositionHeaderValue.Parse (file.ContentDisposition).FileName.Trim ('"');
                     var fullPath = Path.Combine (pathToSave, fileName);
                     var dbPath = Path.Combine (folderName, fileName);
 
                     using (var stream = new FileStream (fullPath, FileMode.Create)) {
                         file.CopyTo (stream);
-                    }
+                    }                    
+
                     
                    produto.ImagemProduto = fileName;
-                }
+                   produto.Nome = Request.Form["Nome"];
+                   produto.Descricao = Request.Form["Descricao"];                
+                  
+
+                } else {
+                   return NotFound(
+                    new
+                    {
+                        Mensagem = "Atenção a imagem não foi selecionada!",
+                        Erro = true
+                    });        
+                }          
+
+                
                 //Tratamos contra ataques de SQL Injection
                 await _contexto.AddAsync(produto);
                 //Salvamos efetivamente o nosso objeto no banco de dados

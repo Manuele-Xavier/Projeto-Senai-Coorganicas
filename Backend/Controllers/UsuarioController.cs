@@ -46,22 +46,50 @@ namespace Backend.Controllers {
         [Authorize(Roles = "Administrador")]
         [HttpPost]
         public async Task<ActionResult<Usuario>> Post ([FromForm]Usuario usuario) {
-            try {
-                var file = Request.Form.Files[0];
-                var folderName = Path.Combine ("Imagens");
-                var pathToSave = Path.Combine (Directory.GetCurrentDirectory (), folderName);
-
-                if (file.Length > 0) {
+            try {       
+                
+                if (Request.Form.Files.Count > 0) {
+                    
+                    var file = Request.Form.Files[0];
+                    var folderName = Path.Combine ("Imagens");
+                    var pathToSave = Path.Combine (Directory.GetCurrentDirectory (), folderName);
                     var fileName = ContentDispositionHeaderValue.Parse (file.ContentDisposition).FileName.Trim ('"');
                     var fullPath = Path.Combine (pathToSave, fileName);
                     var dbPath = Path.Combine (folderName, fileName);
 
                     using (var stream = new FileStream (fullPath, FileMode.Create)) {
                         file.CopyTo (stream);
-                    }
+                    }                    
+
                     
                    usuario.ImagemUsuario = fileName;
+                   usuario.Nome = Request.Form["Nome"];
+                   usuario.Email = Request.Form["Email"];
+                   usuario.Cnpj =  Request.Form["Cnpj"];
+                   usuario.Senha =  Request.Form["Senha"];
+                   usuario.TipoUsuarioId = Convert.ToInt32(Request.Form["TipoUsuario"]);
+
+                } else {
+                    var fileName = string.Empty;
+
+                    if(Request.Form.Files.Count == 0) {                    
+                        if(Convert.ToInt32(Request.Form["TipoUsuario"]) == 2) {
+                            fileName = "woman.png";
+                        } else {
+                            
+                            fileName = "pessoa.png";
+                        }                   
+                    }    
+
+                   usuario.ImagemUsuario = fileName; 
+                   usuario.Nome = Request.Form["Nome"];
+                   usuario.Email = Request.Form["Email"];
+                   usuario.Cnpj = Request.Form["Cnpj"];
+                   usuario.Senha = Request.Form["Senha"];
+                   usuario.TipoUsuarioId = Convert.ToInt32(Request.Form["TipoUsuario"]);
                 }
+                
+
                 //Tratamos contra ataques de SQL Injection
                 await _contexto.AddAsync(usuario);
                 if(ValidaCNPJ(usuario.Cnpj)==true){

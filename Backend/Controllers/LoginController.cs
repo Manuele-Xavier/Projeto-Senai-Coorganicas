@@ -18,21 +18,26 @@ namespace Backend_Cooganicas.Controllers
     {   
         // Chamamos nosso contexto da base de dados
        CoorganicasContext _contexto = new CoorganicasContext();
+        public static int UsuarioLogado { get; private set;}
 
         // Definimos uma variavel para percorrer nossos métodos com as configurações obtidas no appsetting.json
         private IConfiguration _config;
 
         // Definimos um metodo construtor para poder acessar estas configs ^
-
+        
         public LoginController(IConfiguration config){
             _config = config;
-        }
+        }   
+
 
         // Chamamos nosso método para validar o usuário na aplicação, verificando se ele existe em nosso banco de dados
         private Usuario ValidaUsuario(Usuario login) {
             var usuario = _contexto.Usuario.Include(x => x.TipoUsuario).FirstOrDefault(
                 u => u.Email == login.Email && u.Senha == login.Senha
             );
+
+            UsuarioLogado = usuario.UsuarioId;
+
             
             // if(usuario == null) {
             //     return null;
@@ -54,8 +59,8 @@ namespace Backend_Cooganicas.Controllers
                 new Claim(JwtRegisteredClaimNames.NameId, userInfo.Nome),
                 new Claim(JwtRegisteredClaimNames.Email, userInfo.Email),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(ClaimTypes.Role,userInfo.TipoUsuario.Tipo)
-     
+                new Claim(ClaimTypes.Role,userInfo.TipoUsuario.Tipo),                            
+
             };
 
             // Configuramos nosso Token e seu tempo de vida
