@@ -33,10 +33,10 @@ namespace Backend_Cooganicas.Controllers
             var usuario = _contexto.Usuario.Include(x => x.TipoUsuario).FirstOrDefault(
                 u => u.Email == login.Email && u.Senha == login.Senha
             );
-
-            if(usuario == null) {
-                return null;
-            }
+            
+            // if(usuario == null) {
+            //     return null;
+            //  }
 
             return usuario;
         }

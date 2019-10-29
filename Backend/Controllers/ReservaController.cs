@@ -1,17 +1,20 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Backend.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Controllers {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Comunidade")]
     public class ReservaController : ControllerBase 
     {
         CoorganicasContext _contexto = new CoorganicasContext();
 
         //GET: api/Reserva
+        
         [HttpGet]
         public async Task<ActionResult<List<Reserva>>> Get(){
             //FindAsync = procurar algo especifico no banco

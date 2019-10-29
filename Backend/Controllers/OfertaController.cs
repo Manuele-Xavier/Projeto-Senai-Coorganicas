@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.IO;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Backend.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -8,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Backend.Controllers {
     [Route("api/[controller]")]
     [ApiController]
-     [Authorize]
+    [Authorize(Roles = "Agricultor")]
     public class OfertaController : ControllerBase 
     {
         CoorganicasContext _contexto = new CoorganicasContext();
@@ -40,8 +42,10 @@ namespace Backend.Controllers {
 
         //POST api/Oferta
         [HttpPost]
-        public async Task<ActionResult<Oferta>> Post (Oferta Oferta) {
+        public async Task<ActionResult<Oferta>> Post ([FromForm]Oferta Oferta) {
             try {
+                // UploadController upload =  new UploadController();
+                // Oferta.Produto.ImagemProduto = upload.Upload();
                 //Tratamos contra ataques de SQL Injection
                 await _contexto.AddAsync(Oferta);
                 //Salvamos efetivamente o nosso objeto no banco de dados

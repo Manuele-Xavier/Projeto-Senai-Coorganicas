@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.IO;
+using System.Net.Http.Headers;
 
 namespace Backend.Controllers {
     [Route("api/[controller]")]
@@ -43,8 +45,23 @@ namespace Backend.Controllers {
         //POST api/Usuario
         [Authorize(Roles = "Administrador")]
         [HttpPost]
-        public async Task<ActionResult<Usuario>> Post (Usuario usuario) {
+        public async Task<ActionResult<Usuario>> Post ([FromForm]Usuario usuario) {
             try {
+                var file = Request.Form.Files[0];
+                var folderName = Path.Combine ("Imagens");
+                var pathToSave = Path.Combine (Directory.GetCurrentDirectory (), folderName);
+
+                if (file.Length > 0) {
+                    var fileName = ContentDispositionHeaderValue.Parse (file.ContentDisposition).FileName.Trim ('"');
+                    var fullPath = Path.Combine (pathToSave, fileName);
+                    var dbPath = Path.Combine (folderName, fileName);
+
+                    using (var stream = new FileStream (fullPath, FileMode.Create)) {
+                        file.CopyTo (stream);
+                    }
+                    
+                   usuario.ImagemUsuario = fileName;
+                }
                 //Tratamos contra ataques de SQL Injection
                 await _contexto.AddAsync(usuario);
                 if(ValidaCNPJ(usuario.Cnpj)==true){
@@ -63,6 +80,7 @@ namespace Backend.Controllers {
             return usuario;
         }
 
+        
         [HttpPut ("{id}")]
         public async Task<ActionResult> Put (int id, Usuario usuario) {
 
@@ -93,7 +111,7 @@ namespace Backend.Controllers {
             return NoContent ();
         }
 
-        //DELETE api/usuario/id
+        [Authorize(Roles = "Administrador")]
         [HttpDelete ("{id}")]
         public async Task<ActionResult<Usuario>> Delete (int id) {
 

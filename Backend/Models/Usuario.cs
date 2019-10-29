@@ -32,10 +32,11 @@ namespace Backend.Models
         [Required]
         [StringLength(255)]
         public string Email { get; set; }
-        [Column("Imagem_Usuario")]
-        public byte[] ImagemUsuario { get; set; }
         [Column("Tipo_usuario_id")]
         public int? TipoUsuarioId { get; set; }
+        [Column("Imagem_Usuario")]
+        [StringLength(255)]
+        public string ImagemUsuario { get; set; }
 
         [ForeignKey(nameof(TipoUsuarioId))]
         [InverseProperty("Usuario")]

@@ -1,12 +1,16 @@
 using System.Collections.Generic;
+using System.IO;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Backend.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Controllers {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Comunidade")]
     public class ReceitaController : ControllerBase 
     {
         CoorganicasContext _contexto = new CoorganicasContext();
@@ -38,8 +42,23 @@ namespace Backend.Controllers {
 
         //POST api/Receita
         [HttpPost]
-        public async Task<ActionResult<Receita>> Post (Receita Receita) {
+        public async Task<ActionResult<Receita>> Post ([FromForm]Receita Receita) {
             try {
+                var file = Request.Form.Files[0];
+                var folderName = Path.Combine ("Imagens");
+                var pathToSave = Path.Combine (Directory.GetCurrentDirectory (), folderName);
+
+                if (file.Length > 0) {
+                    var fileName = ContentDispositionHeaderValue.Parse (file.ContentDisposition).FileName.Trim ('"');
+                    var fullPath = Path.Combine (pathToSave, fileName);
+                    var dbPath = Path.Combine (folderName, fileName);
+
+                    using (var stream = new FileStream (fullPath, FileMode.Create)) {
+                        file.CopyTo (stream);
+                    }
+                    
+                   Receita.ImagemReceita = fileName;
+                }
                 //Tratamos contra ataques de SQL Injection
                 await _contexto.AddAsync(Receita);
                 //Salvamos efetivamente o nosso objeto no banco de dados

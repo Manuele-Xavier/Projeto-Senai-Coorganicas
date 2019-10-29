@@ -18,11 +18,13 @@ namespace Backend.Models
         [Required]
         [StringLength(255)]
         public string Nome { get; set; }
-        [Column("Imagem_Produto")]
-        public byte[] ImagemProduto { get; set; }
         [Required]
         [StringLength(255)]
         public string Descricao { get; set; }
+        
+        [Column("Imagem_Produto")]
+        [StringLength(255)]
+        public string ImagemProduto { get; set; }
 
         [InverseProperty("Produto")]
         public virtual ICollection<Oferta> Oferta { get; set; }

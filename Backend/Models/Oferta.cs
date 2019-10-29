@@ -17,13 +17,14 @@ namespace Backend.Models
         public int OfertaId { get; set; }
         [Column(TypeName = "money")]
         public decimal Preco { get; set; }
-        [Required]
+        
+        // [Required]
         [StringLength(255)]
         public string Cidade { get; set; }
         [Column(TypeName = "date")]
         public DateTime Validade { get; set; }
         public double Quantidade { get; set; }
-        [Required]
+        // [Required]
         [StringLength(255)]
         public string Regiao { get; set; }
         [Column("Usuario_id")]

@@ -6526,11 +6526,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fic\\Desktop\\Projeto-Senai-Coorganicas\\Backend\\Backend.csproj",
+      "projectUniqueName": "c:\\Users\\fic\\Desktop\\Projeto-Senai-Coorganicas\\Backend\\Backend.csproj",
       "projectName": "Backend",
-      "projectPath": "C:\\Users\\fic\\Desktop\\Projeto-Senai-Coorganicas\\Backend\\Backend.csproj",
+      "projectPath": "c:\\Users\\fic\\Desktop\\Projeto-Senai-Coorganicas\\Backend\\Backend.csproj",
       "packagesPath": "C:\\Users\\fic\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fic\\Desktop\\Projeto-Senai-Coorganicas\\Backend\\obj\\",
+      "outputPath": "c:\\Users\\fic\\Desktop\\Projeto-Senai-Coorganicas\\Backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

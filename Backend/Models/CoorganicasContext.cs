@@ -28,7 +28,6 @@ namespace Backend.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-
                 optionsBuilder.UseSqlServer("Server=LAB08DESK6901\\SQLEXPRESS; Database=Coorganicas; User Id=sa; Password=132");
             }
         }
@@ -70,11 +69,15 @@ namespace Backend.Models
             {
                 entity.Property(e => e.Descricao).IsUnicode(false);
 
+                entity.Property(e => e.ImagemProduto).IsUnicode(false);
+
                 entity.Property(e => e.Nome).IsUnicode(false);
             });
 
             modelBuilder.Entity<Receita>(entity =>
             {
+                entity.Property(e => e.ImagemReceita).IsUnicode(false);
+
                 entity.Property(e => e.Titulo).IsUnicode(false);
 
                 entity.HasOne(d => d.Usuario)
@@ -130,6 +133,8 @@ namespace Backend.Models
                     .IsFixedLength();
 
                 entity.Property(e => e.Email).IsUnicode(false);
+
+                entity.Property(e => e.ImagemUsuario).IsUnicode(false);
 
                 entity.Property(e => e.Nome).IsUnicode(false);
 

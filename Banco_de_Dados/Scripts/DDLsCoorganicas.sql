@@ -31,7 +31,7 @@ CREATE TABLE Usuario
 	CNPJ CHAR(14) UNIQUE NOT NULL,
 	Senha VARCHAR(255) NOT NULL,
 	Email VARCHAR(255) UNIQUE NOT NULL,
-	Imagem_Usuario  VARBINARY(MAX),
+	Imagem_Usuario  VARCHAR(255),
 	Tipo_usuario_id INT FOREIGN KEY REFERENCES Tipo_Usuario(Tipo_usuario_id)
 );
 
@@ -90,3 +90,10 @@ CREATE TABLE Reserva
 );
 
 /*** CRIAÇÃO DAS TABELAS COORGÂNICAS ***/
+
+ALTER TABLE Produto DROP COLUMN Imagem_Produto;
+
+ALTER TABLE Receita ADD Imagem_Receita  VARCHAR(255);
+
+SELECT*FROM Produto
+

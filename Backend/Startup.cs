@@ -30,7 +30,10 @@ namespace Backend
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
-        {   
+        { 
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0); 
+            services.AddMvc(option => option.EnableEndpointRouting = false)
+                .AddNewtonsoftJson();
 
             services.AddControllersWithViews().AddNewtonsoftJson(
                opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore
@@ -82,6 +85,7 @@ namespace Backend
             {
                 endpoints.MapControllers();
             });
+            app.UseMvc();
         }
     }
 }
