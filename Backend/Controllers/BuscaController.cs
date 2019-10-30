@@ -20,7 +20,6 @@ namespace Backend.Controllers
             var p = await _contexto.Produto.FirstOrDefaultAsync(x => x.Nome == produto);
 
             foreach(var item in ofertas) {
-
                 if(item.ProdutoId == p.ProdutoId) {
 
                     produtos.Add(item);
