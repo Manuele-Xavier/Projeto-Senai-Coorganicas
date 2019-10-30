@@ -744,6 +744,9 @@ select{
     padding-left: 95px;
     font-size: 1.3em; 
 }
+.espaco_span {
+    padding-bottom: 20px;
+}
 
 /*login*/
 
