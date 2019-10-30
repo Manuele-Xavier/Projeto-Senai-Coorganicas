@@ -17,7 +17,7 @@ namespace Backend.Controllers
             List<Oferta> produtos = new List<Oferta>();
 
             var ofertas =  await _contexto.Oferta.Include("Produto").ToListAsync();
-            var p = await _contexto.Produto.FirstOrDefaultAsync(x => x.Nome == produto);
+            var p = await _contexto.Produto.FirstOrDefaultAsync(x => x.Nome.Contains(produto));
 
             foreach(var item in ofertas) {
                 if(item.ProdutoId == p.ProdutoId) {
