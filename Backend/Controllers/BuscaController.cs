@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Backend.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -17,17 +18,15 @@ namespace Backend.Controllers
             List<Oferta> produtos = new List<Oferta>();
 
             var ofertas =  await _contexto.Oferta.Include("Produto").ToListAsync();
-            var p = await _contexto.Produto.FirstOrDefaultAsync(x => x.Nome.Contains(produto));
 
-            foreach(var item in ofertas) {
-                if(item.ProdutoId == p.ProdutoId) {
+            var p = await _contexto.Produto.FirstOrDefaultAsync(x => x.Nome.StartsWith(produto));
 
-                    produtos.Add(item);
-                }               
-              
-            }
+            //var ofertas2 = await _contexto.Oferta.Include("Produto").Where().ToListAsync();
+            // StartsWith 
+            // EndsWith
+            // Contains
 
-            if(produtos.Count == 0) {
+            if(p == null) {
                 return NotFound(
                 new
                 {
@@ -35,6 +34,14 @@ namespace Backend.Controllers
                     Erro = true
                 });   
             }
+
+            foreach(var item in ofertas) {              
+
+                if(item.ProdutoId == p.ProdutoId) {
+                    produtos.Add(item);
+                }               
+              
+            }          
 
             return produtos;
         }

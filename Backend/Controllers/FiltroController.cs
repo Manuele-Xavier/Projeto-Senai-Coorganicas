@@ -20,14 +20,8 @@ namespace Backend.Controllers
        public async Task<ActionResult<List<Oferta>>> Get([FromForm]Oferta oferta){
             var Cidade = Request.Form["cidade"].Count > 0 ? Request.Form["cidade"].ToString() : null;
             var Regiao = Request.Form["regiao"].Count > 0 ? Request.Form["regiao"].ToString() : null;
-            var Validade = Request.Form["validade"].Count > 0 ? Request.Form["validade"].ToString() : null; 
-            
-            if(Request.Form["cidade"].Count > 0) {
-                Cidade =  Request.Form["cidade"].ToString();
-            }
-            else {
-                Cidade = null;
-            }
+            var Validade = Request.Form["validade"].Count > 0 ? Request.Form["validade"].ToString() : null;             
+           
             
             if(Cidade != null && Regiao != null && Validade == null) {                
                 return await CidadeRegiao(oferta);
@@ -226,39 +220,5 @@ namespace Backend.Controllers
             return produtos;
        }
 
-    //    [HttpGet]       
-    //    public async Task<ActionResult<List<Oferta>>> Get([FromForm]Oferta oferta) {
-    //          List<Oferta> produtos = new List<Oferta>();
-         
-
-    //        using(var conexao = new SqlConnection()){
-
-    //             conexao.ConnectionString = @"Server=LAB08DESK6901\SQLEXPRESS;Database=Coorganicas;User Id=sa;Password=132;";
-    //             conexao.Open();
-
-    //             var sql = "select from oferta where Cidade = @cidade";
-    //             SqlCommand cmd =  new SqlCommand(sql, conexao);
-    //             cmd.Parameters.Clear();
-    //             cmd.Parameters.AddWithValue("@cidade", Request.Form["cidade"]);
-               
-    //             SqlDataReader reader = cmd.ExecuteReader();
-            
-    //             while (reader.Read())
-    //             {   
-    //                 oferta.Cidade =  reader["Cidade"].ToString();
-    //                 produtos.Add(oferta);
-                  
-    //             }
-    //             reader.Close();
-
-               
-                
-
-    //             return produtos;
- 
-    //        }
-
-
-    //    }
     }
 }
