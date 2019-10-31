@@ -22,7 +22,7 @@ namespace Backend.Controllers {
         public async Task<ActionResult<List<Usuario>>> Get(){
             //FindAsync = procurar algo especifico no banco
             //await espera acontecer 
-            var usuarios = await _contexto.Usuario.Include("TipoUsuario").ToListAsync();
+            var usuarios = await _contexto.Usuario.Include("Telefone").Include("Endereco").ToListAsync();
             if(usuarios == null) {
                 return NotFound();
             }
@@ -34,7 +34,7 @@ namespace Backend.Controllers {
         public async Task<ActionResult<Usuario>> Get (int id) {
             //FindAsync = procurar algo especifico no banco
             //await espera acontecer 
-            var usuario = await _contexto.Usuario.Include("TipoUsuario").FirstOrDefaultAsync(u => u.UsuarioId == id);
+            var usuario = await _contexto.Usuario.Include("Telefone").Include("Endereco").FirstOrDefaultAsync(u => u.UsuarioId == id);
             if (usuario == null) {
                 return NotFound ();
             }

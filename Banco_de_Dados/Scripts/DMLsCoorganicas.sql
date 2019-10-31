@@ -8,8 +8,8 @@ INSERT INTO Tipo_Usuario(Tipo) VALUES('Administrador'),('Comunidade'),('Agricult
 SELECT * FROM Tipo_Usuario;
 
 -- Tabela Produto
-INSERT INTO Produto(Nome, Descricao) VALUES
-('Banana', 'Prata'),('Maçã', 'Verde'),('Pera', 'Amarela'); 
+INSERT INTO Produto(Nome) VALUES
+('Banana'),('Maçã'),('Pera'),('Uva'); 
 
 SELECT * FROM Produto;
 
@@ -41,8 +41,8 @@ INSERT INTO Endereco(Cep, Endereco, Numero, Usuario_id) VALUES
 SELECT * FROM Endereco
 
 -- Tabela Oferta
-INSERT INTO Oferta(Preco, Cidade, Validade, Quantidade, Regiao, Usuario_id, Produto_id) VALUES
-('3.99', 'São Paulo', '23/10/2019', 23.5, 'Central', '3', 1);
+INSERT INTO Oferta(Preco, Cidade, Validade, Quantidade, Regiao, Usuario_id, Produto_id, Descricao) VALUES
+('3.99', 'São Paulo', '23/10/2019', 23.5, 'Central', '3', 1, 'Banana Maçã');
 
 SELECT * FROM Oferta
 

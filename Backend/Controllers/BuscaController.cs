@@ -30,7 +30,7 @@ namespace Backend.Controllers
                 return NotFound(
                 new
                 {
-                    Mensagem = "Produto não está sendo ofertado no momento",
+                    Mensagem = "Produto não encontrado.",
                     Erro = true
                 });   
             }
@@ -41,7 +41,16 @@ namespace Backend.Controllers
                     produtos.Add(item);
                 }               
               
-            }          
+            }
+
+            if(produtos.Count == 0) {
+                return NotFound(
+                new
+                {
+                    Mensagem = "Esse produto não está sendo ofertado no momento",
+                    Erro = true
+                });   
+            }
 
             return produtos;
         }

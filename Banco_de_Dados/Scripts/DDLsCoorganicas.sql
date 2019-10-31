@@ -15,14 +15,9 @@ CREATE TABLE Produto
 (
 	Produto_id INT IDENTITY PRIMARY KEY NOT NULL,
 	Nome VARCHAR(255) NOT NULL,
-	Imagem_Produto VARBINARY(MAX),
-	Descricao VARCHAR(255) NOT NULL
-);
+	Imagem_Produto VARCHAR(255)
 
-/*
-ALTER TABLE Produto ADD Imagem_Produto VARBINARY(MAX);
-SELECT * FROM Produto
-*/
+);
 
 CREATE TABLE Usuario
 (
@@ -35,11 +30,6 @@ CREATE TABLE Usuario
 	Tipo_usuario_id INT FOREIGN KEY REFERENCES Tipo_Usuario(Tipo_usuario_id)
 );
 
-/*
-ALTER TABLE Usuario ADD Imagem_Usuario VARBINARY(MAX);
-SELECT * FROM Usuario
-*/
-
 CREATE TABLE Telefone
 (
 	Telefone_id INT IDENTITY PRIMARY KEY NOT NULL,
@@ -50,15 +40,17 @@ CREATE TABLE Telefone
 CREATE TABLE Receita
 (
 	Receita_id INT IDENTITY PRIMARY KEY NOT NULL,
-	Titulo VARCHAR(255) NOT NULL,
-	Conteudo TEXT NOT NULL,
-	Usuario_id INT FOREIGN KEY REFERENCES Usuario(Usuario_id)
+	Titulo VARCHAR(255) NOT NULL,	
+	Conteudo TEXT NOT NULL,	
+	Usuario_id INT FOREIGN KEY REFERENCES Usuario(Usuario_id),
+	Imagem_Receita  VARCHAR(255),
 );
 
 
 CREATE TABLE Endereco
 (
 	Endereco_id INT IDENTITY PRIMARY KEY NOT NULL,
+	Cidade VARCHAR(255) NOT NULL,
 	Cep CHAR(8) NOT NULL,
 	Endereco VARCHAR(255) NOT NULL,
 	Numero INT,
@@ -74,7 +66,8 @@ CREATE TABLE Oferta
 	Quantidade FLOAT NOT NULL,
 	Regiao VARCHAR(255) NOT NULL,
 	Usuario_id INT FOREIGN KEY REFERENCES Usuario(Usuario_id),
-	Produto_id INT FOREIGN KEY REFERENCES Produto(Produto_id)
+	Produto_id INT FOREIGN KEY REFERENCES Produto(Produto_id),
+	Descricao VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Reserva
@@ -90,10 +83,4 @@ CREATE TABLE Reserva
 );
 
 /*** CRIAÇÃO DAS TABELAS COORGÂNICAS ***/
-
-ALTER TABLE Produto DROP COLUMN Imagem_Produto;
-
-ALTER TABLE Receita ADD Imagem_Receita  VARCHAR(255);
-
-SELECT*FROM Produto
 
