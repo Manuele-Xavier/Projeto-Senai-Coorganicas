@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Perfil agricutor  - Coorgânicas</title>
+    <title>Perfil agricutor - Coorgânicas</title>
 </head>
 
 <body>
@@ -16,56 +16,46 @@
             <div class="esquerdo">
                 <nav class="menu_perfil">
                     <ul>
-                        <li><a title= "Imagem do site Coorgânicas" href=""><img src="../images/pessoa.png"></a></li>
-                        <li><a title= "Perfil de configuração do site Coorgânicas" href="PerfilConfig2.html">Nome</a></li>
-                        <li><a title= "Meus produtos do site Coorgânicas" href="./perfil2.html">Meus Produtos</a></li>
-                        <li><a title= "Cadastrar produtos do site Coorgânicas" href="perfil.html">Cadastrar Produto</a></li>
-                        <li><a title= "Faça uma doação do site Coorgânicas" href="">Faça uma doação</a></li>
-                        <li><a title= "Minhas informações do site Coorgânicas" href="PerfilConfig2.html">Minhas informações</a></li>
-                        <li><a title= "Sair do site Coorgânicas" href="login.html">Sair</a></li>
+                        <li><a title="Imagem do site Coorgânicas" href=""><img src="../images/pessoa.png"></a></li>
+                        <li><a title="Perfil de configuração do site Coorgânicas" href="PerfilConfig2.html">Nome</a>
+                        </li>
+                        <li><a title="Perfil de configuração do site Coorgânicas" href="./produtos.html">Produtos</a>
+                        </li>
+                        <li><a title="Meus produtos do site Coorgânicas" href="./perfil2.html">Meus Produtos</a></li>
+                        <li><a title="Cadastrar produtos do site Coorgânicas" href="perfil.html">Cadastrar Produto</a>
+                        </li>
+                        <li><a title="Faça uma doação do site Coorgânicas" href="">Faça uma doação</a></li>
+                        <li><a title="Minhas informações do site Coorgânicas" href="PerfilConfig2.html">Minhas
+                                informações</a></li>
+                        <li><a title="Sair do site Coorgânicas" href="login.html">Sair</a></li>
                     </ul>
                 </nav>
             </div>
-            
-            <form method="POST" id="formcadastro" class="form_cadaspro">
+
+            <form method="POST" id="form_cadastro_produtos">
                 <h1 class="t_perfil">Cadastrar produtos</h1>
-                    <div class="direito1">
-                <div class="form1">
-                    <label><span class="alinhamento">Nome:</span>
-                        <input type="text" class="espaço_imp" aria-label="digite o nome do produto">
-                    </label>
-                    <label><span class="alinhamento">preço:</span>
-                        <input type="text" class="espaço_imp" aria-label="digite o preço do produto">
-                    </label>
-                    <label><span class="alinhamento">Código do produto:</span>
-                        <input type="text" class="espaço_imp" aria-label="digite o nome do produto">
-                    </label>
-                    <label><span class="alinhamento">CNPJ:</span>
-                        <input type="text" class="espaço_imp" aria-label="digite a quantidade de produto">
-                    </label>
+                <label> <span>Produto:</span>
+                    <input type="text"  aria-label="Digite o seu nome" name="nome" required></input>
+                </label> <br><br>
+                <label> <span>Estado do produto</span>
+                    <input type="text"  aria-label="Digite o seu sobrenome" name="sobrenome" required></input>
+                </label> <br><br>
+                <label> <span>CNPJ</span>
+                    <input type="e-mail" aria-label="Digite o seu e-mail" name="e-mail" required></input>
+                </label> <br><br>
+                <label> <span>Validade </span>
+                    <input type="date" aria-label="Digite a sua senha" name="senha" required></input>
+                </label> <br><br>
+                <label> <span>Quantidade</span>
+                    <input type="password"aria-label="Confirmae a sua senha"name="confirmar_senha" required></input>
+                </label> <br><br>
+                <label> <span>Região</span>
+                    <input type="password"  aria-label="Confirmae a sua senha"name="confirmar_senha" required></input>
+                </label> <br><br>
+                <div class="btns">
+                    <button type="submit" class="btn"><a href="">Adicionar</a></button>
+                    <button type="reset" class="btn"><a href="">Cancelar</a></button>
                 </div>
-                <div class="form2">
-
-                    <label><span class="alinhamento">Estado do produto:</span>
-                        <input type="text" class="espaço_imp" aria-label="digite o nome do produto">
-                    </label>
-                    <label><span class="alinhamento">Validade:</span>
-                        <input type="text" class="espaço_imp" aria-label="digite a validade do produto">
-                    </label>
-                    <label><span class="alinhamento">Quantidade:</span>
-                        <input type="text" class="espaço_imp" aria-label="digite a quantidade de produto">
-                    </label>
-                    <label><span class="alinhamento">Região de SP:</span>
-                        <input type="text" class="espaço_imp" aria-label="digite a quantidade de produto">
-                    </label>
-                </div>
-            </div>
-                <div class="divisao">
-
-                <button type="reset" class="btn">Adicionar</button>
-                <button type="submit" class="btn">Cancelar</button>
-            </div>
-
             </form>
         </div>
     </main>
