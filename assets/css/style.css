@@ -794,35 +794,27 @@ select{
     width: 200px;
   }
  
-  .form1, .form2{
+  #form_cadastro_produtos{
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     width: 500px;
-    line-height: 3.5em;
-    padding-bottom: 20px;
-  }
-  .form1 input, .form2 input{
-    width: 250px;
-    height: 50px;
-    border-radius:4px;
-    border:none;
-    color:#707070;
-    -webkit-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
-    -moz-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
-    box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
-    display: flex;
-    justify-content: flex-end;
-  }
-  .divisao{
-    display: flex;
-    justify-content: space-between;
-    width: 465px;
-    margin-left: 223px;
-
-  }
-  .alinhamento{
-    font-size: 1.3em;
-  }
+    margin: auto;
+    align-items: center;
+    }
+    #form_cadastro_produtos input{
+        width: 500px;
+        height: 50px;
+        border-radius:4px;
+        border:none;
+    }
+    #form_cadastro_produtos input [type="date"] {
+        background-color: #BF0404;
+    }
+    
+    #form_cadastro_produtos span{
+        font-size: 1.3em;
+    }
   .t_perfil{
       text-align: center;
       padding-bottom: 30px;
@@ -919,7 +911,64 @@ box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
     width:100%;
     padding: 10px 0px;
 }
-
+.direito3{
+    width:70%;
+   
+}
+/*perfil 4*/
+#form_receita{
+    line-height: 3.0em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card_rexeita{
+    width: 300px;
+    height: 400px;
+    -webkit-box-shadow: 4px 4px 4px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 4px 4px 4px 0px rgba(204,204,204,1);
+    box-shadow: 4px 4px 4px 0px rgba(204,204,204,1);
+    margin-bottom: 30px;
+    margin-top: 30px;
+    background-color:white;
+    border-radius: 4px;
+}
+.img_receitax{
+    width: 300px;
+}
+  .t_rexeita{
+      text-align: center;
+      
+  }
+  .label_receita2, .label_receita span{
+      font-size: 1.3em;
+  }
+  .label_receita2 input {
+    width: 300px;
+    height: 50px;
+    border-radius: 4px;
+  border: none;
+  -webkit-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+  -moz-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+  box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+  font-size: 1.5em;
+  }
+  .label_receita input {
+      width: 300px;
+      height: 200px;
+      border-radius: 4px;
+    border: none;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+    box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+    font-size: 1.5em;
+  }
+  .card_rexeita1{
+    height: 400px;
+    width: 300px;
+  }
+  
 /*perfil2 e 3*/
 /* perfil configuração*/
 
