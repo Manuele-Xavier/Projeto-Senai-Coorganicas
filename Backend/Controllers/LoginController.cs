@@ -37,9 +37,9 @@ namespace Backend_Cooganicas.Controllers
             var usuario = _repositorio.Logar(login);
             UsuarioLogado = usuario.UsuarioId;
             
-            // if(usuario == null) {
-            //     return null;
-            //  }
+                // if(usuario == null) {
+                //     return null;
+                //  }
 
             return usuario;
         }
