@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Backend.Domains;
+using BackEnd.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,13 +10,13 @@ namespace Backend.Controllers {
     [ApiController]
     public class EnderecoController : ControllerBase 
     {
-        CoorganicasContext _contexto = new CoorganicasContext();
+       EnderecoRepository _repositorio = new EnderecoRepository();
 
         //GET: api/Endereco
         [HttpGet]
         public async Task<ActionResult<List<Endereco>>> Get() {
 
-           var Enderecos = await _contexto.Endereco.Include("Usuario").ToListAsync();
+           var Enderecos = await _repositorio.Listar();
             if (Enderecos == null) {
                 return NotFound();
             }
@@ -26,7 +27,7 @@ namespace Backend.Controllers {
         [HttpGet ("{id}")]
         public async Task<ActionResult<Endereco>> Get (int id) {
             
-            var Endereco = await _contexto.Endereco.Include("Usuario").FirstOrDefaultAsync(e => e.EnderecoId == id);
+            var Endereco = await _repositorio.BuscarPorID(id);
             if (Endereco == null) {
                 return NotFound ();
             }
@@ -39,9 +40,8 @@ namespace Backend.Controllers {
         public async Task<ActionResult<Endereco>> Post (Endereco Endereco) {
             try {
                
-                await _contexto.AddAsync (Endereco);
+                await _repositorio.Salvar(Endereco);
                 
-                await _contexto.SaveChangesAsync ();
 
             } catch (DbUpdateConcurrencyException) {
                 throw;
@@ -50,19 +50,17 @@ namespace Backend.Controllers {
         }
 
         [HttpPut ("{id}")]
-        public async Task<ActionResult> Put (int id, Endereco Endereco) {
+        public async Task<ActionResult> Put (int id, Endereco endereco) {
 
-            if (id != Endereco.EnderecoId) {
+            if (id != endereco.EnderecoId) {
                 return BadRequest ();
             }
 
-            _contexto.Entry (Endereco).State = EntityState.Modified;
-
             try {
-                await _contexto.SaveChangesAsync ();
+                await _repositorio.Alterar(endereco);
             } catch (DbUpdateConcurrencyException) {
 
-                var Endereco_valido = await _contexto.Endereco.FindAsync (id);
+                var Endereco_valido = await _repositorio.BuscarPorID (id);
                 if (Endereco_valido == null) {
                     return NotFound ();
                 } else {
@@ -78,14 +76,13 @@ namespace Backend.Controllers {
         [HttpDelete ("{id}")]
         public async Task<ActionResult<Endereco>> Delete (int id) {
 
-            var Endereco = await _contexto.Endereco.FindAsync (id);
-            if (Endereco == null) {
+            var endereco = await _repositorio.BuscarPorID (id);
+            if (endereco == null) {
                 return NotFound ();
             }
-            _contexto.Endereco.Remove (Endereco);
-            await _contexto.SaveChangesAsync ();
+            await _repositorio.Excluir (endereco);
 
-            return Endereco;
+            return endereco;
         }
     }
 }

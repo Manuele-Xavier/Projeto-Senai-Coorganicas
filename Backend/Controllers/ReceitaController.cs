@@ -5,6 +5,7 @@ using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Backend.Domains;
+using BackEnd.Repositories;
 using Backend_Cooganicas.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -16,14 +17,14 @@ namespace Backend.Controllers {
     [Authorize(Roles = "Administrador")]
     public class ReceitaController : ControllerBase 
     {
-        CoorganicasContext _contexto = new CoorganicasContext();
+        ReceitaRepository _repositorio = new ReceitaRepository();
 
         //GET: api/Receita
         [HttpGet]
         public async Task<ActionResult<List<Receita>>> Get(){
             //FindAsync = procurar algo especifico no banco
             //await espera acontecer 
-            var Receitas = await _contexto.Receita.Include("Usuario").ToListAsync();
+            var Receitas = await _repositorio.Listar();
             if(Receitas == null) {
                 return NotFound();
             }
@@ -35,7 +36,7 @@ namespace Backend.Controllers {
         public async Task<ActionResult<Receita>> Get (int id) {
             //FindAsync = procurar algo especifico no banco
             //await espera acontecer 
-            var Receita = await _contexto.Receita.Include("Usuario").FirstOrDefaultAsync(r => r.ReceitaId == id);
+            var Receita = await _repositorio.BuscarPorID(id);
             if (Receita == null) {
                 return NotFound ();
             }
@@ -76,10 +77,8 @@ namespace Backend.Controllers {
                 }          
                 
                 //Tratamos contra ataques de SQL Injection
-                await _contexto.AddAsync(receita);
-                //Salvamos efetivamente o nosso objeto no banco de dados
-                await _contexto.SaveChangesAsync();
-
+                await _repositorio.Salvar(receita);
+                
             } catch (DbUpdateConcurrencyException) {
                 throw;
             }
@@ -88,25 +87,23 @@ namespace Backend.Controllers {
         }
 
         [HttpPut ("{id}")]
-        public async Task<ActionResult> Put (int id, Receita Receita) {
+        public async Task<ActionResult> Put (int id, Receita receita) {
 
             //Se o Id do objeto não existir 
             //ele retorna o erro 400
 
-            if (id != Receita.ReceitaId) {
+            if (id != receita.ReceitaId) {
                 return BadRequest ();
             }
 
             //Comparamos os atributos que foram modificados atraves do EF
 
-            _contexto.Entry (Receita).State = EntityState.Modified;
-
             try {
-                await _contexto.SaveChangesAsync ();
+                await _repositorio.Alterar(receita);
             } catch (DbUpdateConcurrencyException) {
                 //Verificamos se o objeto realmente existe no banco
-                var Receita_valido = await _contexto.Receita.FindAsync (id);
-                if (Receita_valido == null) {
+                var receita_valido = await _repositorio.BuscarPorID(id);
+                if (receita_valido == null) {
                     return NotFound ();
                 } else {
                     throw;
@@ -121,14 +118,14 @@ namespace Backend.Controllers {
         [HttpDelete ("{id}")]
         public async Task<ActionResult<Receita>> Delete (int id) {
 
-            var Receita = await _contexto.Receita.FindAsync (id);
-            if (Receita == null) {
+            var receita = await _repositorio.BuscarPorID (id);
+            if (receita == null) {
                 return NotFound ();
             }
-            _contexto.Receita.Remove (Receita);
-            await _contexto.SaveChangesAsync ();
+            
+            await _repositorio.Excluir(receita);
 
-            return Receita;
+            return receita;
         }
     }
 }
