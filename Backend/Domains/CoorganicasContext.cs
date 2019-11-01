@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace Backend.Models
+namespace Backend.Domains
 {
     public partial class CoorganicasContext : DbContext
     {
@@ -28,7 +28,8 @@ namespace Backend.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=LAB08DESK6901\\SQLEXPRESS; Database=Coorganicas; User Id=sa; Password=132");
+                //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Server=LAB08DESK6901\\SQLEXPRESS;Database=Coorganicas; User Id=sa; Password=132");
             }
         }
 
@@ -39,6 +40,8 @@ namespace Backend.Models
                 entity.Property(e => e.Cep)
                     .IsUnicode(false)
                     .IsFixedLength();
+
+                entity.Property(e => e.Cidade).IsUnicode(false);
 
                 entity.Property(e => e.Endereco1).IsUnicode(false);
 
@@ -51,6 +54,8 @@ namespace Backend.Models
             modelBuilder.Entity<Oferta>(entity =>
             {
                 entity.Property(e => e.Cidade).IsUnicode(false);
+
+                entity.Property(e => e.Descricao).IsUnicode(false);
 
                 entity.Property(e => e.Regiao).IsUnicode(false);
 
@@ -67,8 +72,6 @@ namespace Backend.Models
 
             modelBuilder.Entity<Produto>(entity =>
             {
-                entity.Property(e => e.Descricao).IsUnicode(false);
-
                 entity.Property(e => e.ImagemProduto).IsUnicode(false);
 
                 entity.Property(e => e.Nome).IsUnicode(false);
@@ -121,11 +124,11 @@ namespace Backend.Models
             modelBuilder.Entity<Usuario>(entity =>
             {
                 entity.HasIndex(e => e.Cnpj)
-                    .HasName("UQ__Usuario__AA57D6B46ED250CE")
+                    .HasName("UQ__Usuario__AA57D6B47F142D76")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Email)
-                    .HasName("UQ__Usuario__A9D10534E02CADD2")
+                    .HasName("UQ__Usuario__A9D105342A852FEE")
                     .IsUnique();
 
                 entity.Property(e => e.Cnpj)

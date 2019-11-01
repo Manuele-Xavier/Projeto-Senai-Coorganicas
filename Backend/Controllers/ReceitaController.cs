@@ -4,7 +4,7 @@ using System.IO;
 using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Backend.Models;
+using Backend.Domains;
 using Backend_Cooganicas.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

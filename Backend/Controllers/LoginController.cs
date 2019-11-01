@@ -3,10 +3,11 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using Backend.Models;
+using Backend.Domains;
+using Backend.Repositories;
+using Backend.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
@@ -17,7 +18,8 @@ namespace Backend_Cooganicas.Controllers
     public class LoginController : ControllerBase
     {   
         // Chamamos nosso contexto da base de dados
-       CoorganicasContext _contexto = new CoorganicasContext();
+        LoginRepository _repositorio = new LoginRepository();
+
         public static int UsuarioLogado { get; private set;}
 
         // Definimos uma variavel para percorrer nossos métodos com as configurações obtidas no appsetting.json
@@ -31,13 +33,9 @@ namespace Backend_Cooganicas.Controllers
 
 
         // Chamamos nosso método para validar o usuário na aplicação, verificando se ele existe em nosso banco de dados
-        private Usuario ValidaUsuario(Usuario login) {
-            var usuario = _contexto.Usuario.Include(x => x.TipoUsuario).FirstOrDefault(
-                u => u.Email == login.Email && u.Senha == login.Senha
-            );
-
+        private Usuario ValidaUsuario(LoginViewModel login) {
+            var usuario = _repositorio.Logar(login);
             UsuarioLogado = usuario.UsuarioId;
-
             
             // if(usuario == null) {
             //     return null;
@@ -78,11 +76,14 @@ namespace Backend_Cooganicas.Controllers
         // Usa essa anotação para ignorar a autenticação nesse método
         [HttpPost]
         [AllowAnonymous]
-        public IActionResult Login([FromBody]Usuario login) {
+        public IActionResult Login([FromForm]LoginViewModel  login) {
+            
+            // Busca um usuário através do e-mail e senha passados
             
             IActionResult response = Unauthorized();
 
             var user = ValidaUsuario(login);
+
 
             if(user != null) {
                 var tokenString = GerarToken(user);

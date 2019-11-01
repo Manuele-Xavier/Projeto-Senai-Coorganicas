@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using Backend.Models;
+using Backend.Domains;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -60,7 +60,7 @@ namespace Backend.Controllers {
                     
                    produto.ImagemProduto = fileName;
                    produto.Nome = Request.Form["Nome"];
-                   produto.Descricao = Request.Form["Descricao"];                
+                   //produto.Descricao = Request.Form["Descricao"];                
                   
 
                 } else {

@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Backend.Models
+namespace Backend.Domains
 {
     public partial class Endereco
     {
         [Key]
         [Column("Endereco_id")]
         public int EnderecoId { get; set; }
+        [Required]
+        [StringLength(255)]
+        public string Cidade { get; set; }
         [Required]
         [StringLength(8)]
         public string Cep { get; set; }
