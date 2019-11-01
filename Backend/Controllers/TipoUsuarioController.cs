@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Backend.Domains;
+using Backend.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,14 +10,14 @@ namespace Backend.Controllers {
     [ApiController]
     public class TipoUsuarioController : ControllerBase 
     {
-        CoorganicasContext _contexto = new CoorganicasContext();
-
+        TipoUsuarioRepository _repositorio=new TipoUsuarioRepository();
+        
         //GET: api/TipoUsuario
         [HttpGet]
         public async Task<ActionResult<List<TipoUsuario>>> Get() {
             //FindAsync = procurar algo especifico no banco
             //await espera acontecer 
-            var tipoUsuario = await _contexto.TipoUsuario.ToListAsync();
+            var tipoUsuario = await _repositorio.Listar();
             if (tipoUsuario == null) {
                 return NotFound();
             }
@@ -28,7 +29,7 @@ namespace Backend.Controllers {
         public async Task<ActionResult<TipoUsuario>> Get (int id) {
             //FindAsync = procurar algo especifico no banco
             //await espera acontecer 
-            var tipoUsuario = await _contexto.TipoUsuario.FindAsync (id);
+            var tipoUsuario = await _repositorio.BuscarPorID(id);
             if (tipoUsuario == null) {
                 return NotFound ();
             }
@@ -41,10 +42,7 @@ namespace Backend.Controllers {
         [HttpPost]
         public async Task<ActionResult<TipoUsuario>> Post (TipoUsuario tipoUsuario) {
             try {
-                //Tratamos contra ataques de SQL Injection
-                await _contexto.AddAsync (tipoUsuario);
-                //Salvamos efetivamente o nosso objeto no banco de dados
-                await _contexto.SaveChangesAsync ();
+                await _repositorio.Salvar(tipoUsuario);
 
             } catch (DbUpdateConcurrencyException) {
                 throw;
@@ -64,13 +62,13 @@ namespace Backend.Controllers {
 
             //Comparamos os atributos que foram modificados atraves do EF
 
-            _contexto.Entry (tipoUsuario).State = EntityState.Modified;
+            
 
             try {
-                await _contexto.SaveChangesAsync ();
+                await _repositorio.Alterar(tipoUsuario);
             } catch (DbUpdateConcurrencyException) {
                 //Verificamos se o objeto realmente existe no banco
-                var tipoUsuario_valido = await _contexto.TipoUsuario.FindAsync (id);
+                var tipoUsuario_valido = await _repositorio.BuscarPorID(id);
                 if (tipoUsuario_valido == null) {
                     return NotFound ();
                 } else {
@@ -86,13 +84,11 @@ namespace Backend.Controllers {
         [HttpDelete ("{id}")]
         public async Task<ActionResult<TipoUsuario>> Delete (int id) {
 
-            var tipoUsuario = await _contexto.TipoUsuario.FindAsync (id);
+            var tipoUsuario = await _repositorio.BuscarPorID(id);
             if (tipoUsuario == null) {
                 return NotFound ();
             }
-            _contexto.TipoUsuario.Remove (tipoUsuario);
-            await _contexto.SaveChangesAsync ();
-
+            await _repositorio.Excluir(tipoUsuario);
             return tipoUsuario;
         }
     }

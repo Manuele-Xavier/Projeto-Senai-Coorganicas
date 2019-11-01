@@ -34,9 +34,9 @@ INSERT INTO Receita(Titulo, Conteudo, Usuario_id) VALUES
 SELECT * FROM Receita
 
 -- Tabela Endereco
-INSERT INTO Endereco(Cep, Endereco, Numero, Usuario_id) VALUES
-('02435000', 'Rua Teste, 123', 63, 2),
-('02435123', 'Av Teste, 321', 6333, 3);
+INSERT INTO Endereco(Cidade, Cep, Endereco, Numero, Usuario_id) VALUES
+('São Paulo','02435000', 'Rua Teste, 123', 63, 2),
+('São Paulo', '02435123', 'Av Teste, 321', 6333, 3);
 
 SELECT * FROM Endereco
 

@@ -56,9 +56,8 @@ namespace Backend_Cooganicas.Controllers
             var claims = new[] {
                 new Claim(JwtRegisteredClaimNames.NameId, userInfo.Nome),
                 new Claim(JwtRegisteredClaimNames.Email, userInfo.Email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(ClaimTypes.Role,userInfo.TipoUsuario.Tipo),                            
-
+                new Claim(ClaimTypes.Role,userInfo.TipoUsuario.Tipo),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),                    
             };
 
             // Configuramos nosso Token e seu tempo de vida
