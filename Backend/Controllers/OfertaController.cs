@@ -3,6 +3,7 @@ using System.IO;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Backend.Domains;
+using BackEnd.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,14 +14,14 @@ namespace Backend.Controllers {
     [Authorize(Roles = "Agricultor")]
     public class OfertaController : ControllerBase 
     {
-        CoorganicasContext _contexto = new CoorganicasContext();
+          OfertaRepository _repositorio = new OfertaRepository();
 
         //GET: api/Oferta
         [HttpGet]
         public async Task<ActionResult<List<Oferta>>> Get(){
             //FindAsync = procurar algo especifico no banco
             //await espera acontecer 
-            var Ofertas = await _contexto.Oferta.Include("Usuario").Include("Produto").ToListAsync();
+            var Ofertas = await _repositorio.Listar();
             if(Ofertas == null) {
                 return NotFound();
             }
@@ -32,7 +33,7 @@ namespace Backend.Controllers {
         public async Task<ActionResult<Oferta>> Get (int id) {
             //FindAsync = procurar algo especifico no banco
             //await espera acontecer 
-            var Oferta = await _contexto.Oferta.Include("Usuario").Include("Produto").FirstOrDefaultAsync(o => o.OfertaId == id);
+            var Oferta = await _repositorio.BuscarPorID(id);
             if (Oferta == null) {
                 return NotFound ();
             }
@@ -45,11 +46,10 @@ namespace Backend.Controllers {
         public async Task<ActionResult<Oferta>> Post ([FromForm]Oferta Oferta) {
             try {
                 // UploadController upload =  new UploadController();
-                // Oferta.Produto.ImagemProduto = upload.Upload();
+                // Oferta.Oferta.ImagemOferta = upload.Upload();
                 //Tratamos contra ataques de SQL Injection
-                await _contexto.AddAsync(Oferta);
-                //Salvamos efetivamente o nosso objeto no banco de dados
-                await _contexto.SaveChangesAsync();
+                await _repositorio.Salvar(Oferta);
+              
 
             } catch (DbUpdateConcurrencyException) {
                 throw;
@@ -70,13 +70,11 @@ namespace Backend.Controllers {
 
             //Comparamos os atributos que foram modificados atraves do EF
 
-            _contexto.Entry (Oferta).State = EntityState.Modified;
-
             try {
-                await _contexto.SaveChangesAsync ();
+                await _repositorio.Alterar (Oferta);
             } catch (DbUpdateConcurrencyException) {
                 //Verificamos se o objeto realmente existe no banco
-                var Oferta_valido = await _contexto.Oferta.FindAsync (id);
+                var Oferta_valido = await _repositorio.BuscarPorID(id);
                 if (Oferta_valido == null) {
                     return NotFound ();
                 } else {
@@ -92,12 +90,12 @@ namespace Backend.Controllers {
         [HttpDelete ("{id}")]
         public async Task<ActionResult<Oferta>> Delete (int id) {
 
-            var Oferta = await _contexto.Oferta.FindAsync (id);
+            var Oferta = await _repositorio.BuscarPorID(id);
             if (Oferta == null) {
                 return NotFound ();
             }
-            _contexto.Oferta.Remove (Oferta);
-            await _contexto.SaveChangesAsync ();
+           
+            await _repositorio.Excluir(Oferta);
 
             return Oferta;
         }

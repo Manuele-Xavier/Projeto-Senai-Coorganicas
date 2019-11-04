@@ -263,7 +263,8 @@ namespace Backend.Controllers {
             // usuario.TipoUsuarioId = 2;
 
             if(Request.Form.Files.Count > 0) {
-
+                string caminho = "";
+                string pasta = "";
                 var file = Request.Form.Files[0];
                 var folderName = Path.Combine ("Imagens");
                 var pathToSave = Path.Combine (Directory.GetCurrentDirectory (), folderName);

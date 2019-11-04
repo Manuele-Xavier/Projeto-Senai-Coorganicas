@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Backend.Domains;
+using BackEnd.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +12,7 @@ namespace Backend.Controllers {
     [Authorize(Roles = "Comunidade")]
     public class ReservaController : ControllerBase 
     {
-        CoorganicasContext _contexto = new CoorganicasContext();
+         ReservaRepository _repositorio = new ReservaRepository();
 
         //GET: api/Reserva
         
@@ -19,7 +20,7 @@ namespace Backend.Controllers {
         public async Task<ActionResult<List<Reserva>>> Get(){
             //FindAsync = procurar algo especifico no banco
             //await espera acontecer 
-        var reservas = await _contexto.Reserva.Include("Usuario").Include("Oferta").ToListAsync();
+        var reservas = await _repositorio.Listar();
             if(reservas == null) {
                 return NotFound();
             }
@@ -31,7 +32,7 @@ namespace Backend.Controllers {
         public async Task<ActionResult<Reserva>> Get (int id) {
             //FindAsync = procurar algo especifico no banco
             //await espera acontecer 
-            var reserva = await _contexto.Reserva.Include("Usuario").Include("Oferta").FirstOrDefaultAsync(t => t.ReservaId == id);
+            var reserva = await _repositorio.BuscarPorID(id);
             if (reserva == null) {
                 return NotFound ();
             }
@@ -44,9 +45,9 @@ namespace Backend.Controllers {
         public async Task<ActionResult<Reserva>> Post (Reserva reserva) {
             try {
                 //Tratamos contra ataques de SQL Injection
-                await _contexto.AddAsync(reserva);
+               
                 //Salvamos efetivamente o nosso objeto no banco de dados
-                await _contexto.SaveChangesAsync();
+                await _repositorio.Salvar(reserva);
 
             } catch (DbUpdateConcurrencyException) {
                 throw;
@@ -67,13 +68,13 @@ namespace Backend.Controllers {
 
             //Comparamos os atributos que foram modificados atraves do EF
 
-            _contexto.Entry (reserva).State = EntityState.Modified;
+        
 
             try {
-                await _contexto.SaveChangesAsync ();
+                await _repositorio.Alterar(reserva);
             } catch (DbUpdateConcurrencyException) {
                 //Verificamos se o objeto realmente existe no banco
-                var reserva_valido = await _contexto.Reserva.FindAsync (id);
+                var reserva_valido = await _repositorio.BuscarPorID(id);
                 if (reserva_valido == null) {
                     return NotFound ();
                 } else {
@@ -89,12 +90,12 @@ namespace Backend.Controllers {
         [HttpDelete ("{id}")]
         public async Task<ActionResult<Reserva>> Delete (int id) {
 
-            var reserva = await _contexto.Reserva.FindAsync (id);
+            var reserva = await _repositorio.BuscarPorID (id);
             if (reserva == null) {
                 return NotFound ();
             }
-            _contexto.Reserva.Remove (reserva);
-            await _contexto.SaveChangesAsync ();
+            
+            await _repositorio.Excluir(reserva);
 
             return reserva;
         }

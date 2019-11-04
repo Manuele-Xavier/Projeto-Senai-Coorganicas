@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Backend.Domains;
 using Backend.Interfaces;
@@ -7,6 +8,12 @@ namespace Backend.Repositories
 {
     public class EnderecoRepository : IEndereco
     {
+        public async Task<List<Endereco>> Listar()
+        {
+            using(CoorganicasContext _contexto = new CoorganicasContext()){
+               return await _contexto.Endereco.Include("Usuario").ToListAsync();
+            }
+        }
           public async Task<Endereco> BuscaEndereco(int id)
         {
             using(CoorganicasContext _contexto = new CoorganicasContext()){
