@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Backend.Domains;
 
@@ -6,13 +5,12 @@ namespace Backend.Interfaces
 {
     public interface ITelefone
     {
-        Task<List<Telefone>>Listar(); 
+        Task<Telefone> BuscaTelefone(int id);
 
-        Task<Telefone>BuscarPorID(int id);
+        Task<Telefone> Alterar(Telefone telefone);
 
-        Task<Telefone>Salvar(Telefone telefone);
-        Task<Telefone>Alterar(Telefone telefone);
-        Task<Telefone>Excluir(Telefone telefone);
-     
+        Task<Telefone> Gravar(Telefone telefone); 
+
+        Task<Telefone> Excluir(Telefone telefone); 
     }
 }

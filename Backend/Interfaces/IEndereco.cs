@@ -1,19 +1,16 @@
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Backend.Domains;
 
-namespace BackEnd.Interfaces
+namespace Backend.Interfaces
 {
     public interface IEndereco
     {
-         Task<List<Endereco>> Listar();
+        Task<Endereco> BuscaEndereco(int id);
 
-         Task<Endereco> BuscarPorID(int id);
+        Task<Endereco> Alterar(Endereco endereco);
 
-         Task<Endereco> Salvar(Endereco endereco); 
+        Task<Endereco> Gravar(Endereco endereco); 
 
-         Task<Endereco> Alterar(Endereco endereco);
-
-         Task<Endereco> Excluir(Endereco endereco);
+        Task<Endereco> Excluir(Endereco endereco); 
     }
 }

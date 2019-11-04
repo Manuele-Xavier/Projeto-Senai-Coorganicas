@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Backend.Domains;
-using Backend.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,15 +9,15 @@ namespace Backend.Controllers {
     [ApiController]
     public class TelefoneController : ControllerBase 
     {
-       TelefoneRepository _repositorio=new TelefoneRepository();
+        CoorganicasContext _contexto = new CoorganicasContext();
 
         //GET: api/Telefone
         [HttpGet]
         public async Task<ActionResult<List<Telefone>>> Get(){
             //FindAsync = procurar algo especifico no banco
             //await espera acontecer 
-            var telefones = await _repositorio.Listar();
-            if(telefones == null) { 
+            var telefones = await _contexto.Telefone.Include("Usuario").ToListAsync();
+            if(telefones == null) {
                 return NotFound();
             }
 
@@ -29,7 +28,7 @@ namespace Backend.Controllers {
         public async Task<ActionResult<Telefone>> Get (int id) {
             //FindAsync = procurar algo especifico no banco
             //await espera acontecer 
-            var telefone = await _repositorio.BuscarPorId(id);
+            var telefone = await _contexto.Telefone.Include("Usuario").FirstOrDefaultAsync(t => t.TelefoneId == id);
             if (telefone == null) {
                 return NotFound ();
             }
@@ -41,7 +40,10 @@ namespace Backend.Controllers {
         [HttpPost]
         public async Task<ActionResult<Telefone>> Post (Telefone telefone) {
             try {
-                await _repositorio.Salvar(telefone);
+                //Tratamos contra ataques de SQL Injection
+                await _contexto.AddAsync(telefone);
+                //Salvamos efetivamente o nosso objeto no banco de dados
+                await _contexto.SaveChangesAsync();
 
             } catch (DbUpdateConcurrencyException) {
                 throw;
@@ -60,12 +62,15 @@ namespace Backend.Controllers {
                 return BadRequest ();
             }
 
+            //Comparamos os atributos que foram modificados atraves do EF
+
+            _contexto.Entry (telefone).State = EntityState.Modified;
 
             try {
-                await _repositorio.Alterar(telefone);
+                await _contexto.SaveChangesAsync ();
             } catch (DbUpdateConcurrencyException) {
                 //Verificamos se o objeto realmente existe no banco
-                var telefone_valido = await _repositorio.BuscarPorId(id);
+                var telefone_valido = await _contexto.Telefone.FindAsync (id);
                 if (telefone_valido == null) {
                     return NotFound ();
                 } else {
@@ -81,11 +86,13 @@ namespace Backend.Controllers {
         [HttpDelete ("{id}")]
         public async Task<ActionResult<Telefone>> Delete (int id) {
 
-            var telefone = await _repositorio.BuscarPorId(id);
+            var telefone = await _contexto.Telefone.FindAsync (id);
             if (telefone == null) {
                 return NotFound ();
             }
-            await _repositorio.Excluir(telefone);
+            _contexto.Telefone.Remove (telefone);
+            await _contexto.SaveChangesAsync ();
+
             return telefone;
         }
     }
