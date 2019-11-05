@@ -57,6 +57,7 @@ namespace Backend_Cooganicas.Controllers
                 new Claim(JwtRegisteredClaimNames.NameId, userInfo.Nome),
                 new Claim(JwtRegisteredClaimNames.Email, userInfo.Email),
                 new Claim(ClaimTypes.Role,userInfo.TipoUsuario.Tipo),
+                new Claim("Role",userInfo.TipoUsuario.Tipo),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),                    
             };
 

@@ -659,6 +659,94 @@ select{
   }
 /*Produtos*/
 
+
+/* RECEITAS */
+.postscontainer{
+    height: auto;
+    background-position: 50% 50%;
+    background-size: auto;
+     /* width: 1000px; */
+    /* margin: 260px; */
+}
+.flexposts{
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* margin-left: 82px;
+    margin-left: 176px;
+    margin-right: 176px; */
+    width: 1000px;
+    margin:auto;
+    align-items: center;
+}
+.tituloposts1{
+    color: var(--vermelho);
+    font-weight: bold;
+    font-size: 2.1em;
+    text-align: center;
+    padding: 30px 0px
+}
+.tituloposts{
+    padding: 20px 0px;
+    color: var(--laranja);
+    font-weight: bold;
+    font-size: 3em;
+    text-align: center;
+}
+.cardcestas.posts{
+    height: 315px;
+}
+.cardcestas{
+    width: 300px;
+    -webkit-box-shadow: 4px 4px 4px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 4px 4px 4px 0px rgba(204,204,204,1);
+    box-shadow: 4px 4px 4px 0px rgba(204,204,204,1);
+    margin-bottom: 50px;
+    background-color:white;
+    border-radius: 4px;
+}
+img{
+    max-width: 100%;
+    display: inline-block;
+}
+.link{
+    text-decoration: none;
+}
+.block{
+    max-width: 100%;
+    display: inline-block;
+}
+.titulocestas{
+    margin-top: 12px;
+    color: var(--cinza-fonte);
+    font-size: 1.3em;
+    text-decoration: none;
+    text-align: -webkit-center;
+}
+.btnmercado{
+    display: block;
+    margin: auto ;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 0px rgba(204,204,204,1);
+    background-color: var(--laranja);
+    width: 186px;
+    height: 18px;
+    color:white;
+    text-decoration: none;
+}
+.espacamento_pag{
+    display: flex;
+    justify-content: center;
+    width: 1000px;
+}
+/* RECEITAS */
+
 /*login*/
 .banner_login{
     background-image: url(../images/photo-1490818387583-1baba5e638af\ \(1\).png);
@@ -916,71 +1004,72 @@ box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
    
 }
 /*perfil 4*/
-#form_receita{
-    line-height: 3.0em;
+.direito3{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.card_rexeita{
-    width: 300px;
-    height: 400px;
-    -webkit-box-shadow: 4px 4px 4px 0px rgba(204,204,204,1);
-    -moz-box-shadow: 4px 4px 4px 0px rgba(204,204,204,1);
-    box-shadow: 4px 4px 4px 0px rgba(204,204,204,1);
-    margin-bottom: 30px;
-    margin-top: 30px;
-    background-color:white;
-    border-radius: 4px;
+#form_receita{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-.img_receitax{
-    width: 300px;
+.img_cadas_receita{
+    width: 400px;
 }
-  .t_rexeita{
-      text-align: center;
-      
-  }
-  .label_receita2, .label_receita span{
-      font-size: 1.3em;
-  }
-  .label_receita2 input {
-    width: 300px;
-    height: 50px;
-    border-radius: 4px;
-  border: none;
-  -webkit-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
-  -moz-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
-  box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
-  font-size: 1.5em;
-  }
-  .label_receita input {
-      width: 300px;
-      height: 200px;
-      border-radius: 4px;
-    border: none;
-    -webkit-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
-    -moz-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
-    box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+.carde_receita{
+    width: 400px;
+    height: 500px;
+    background-color: #FFFFFF;
+    border-radius:4px;
+     border:none;
+}
+.cadas_receita{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    padding-top: 35px;
+
+}
+.label_receita input{
+    width: 500px;
+    height: 300px;
+    border-radius:4px;
+    border:none;
     font-size: 1.5em;
-  }
-  .card_rexeita1{
-    height: 400px;
-    width: 300px;
-  }
-  
+}
+
+    .label_receita2 input{
+        width: 500px;
+        height: 50px;
+        border-radius:4px;
+        border:none;
+    }
+    #form_receita span{
+        font-size: 1.5em;
+    }
+
+
 /*perfil2 e 3*/
 /* perfil configuração*/
 
+.btns{
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+}
 
-
-#form_cadastro_conf{
-display: flex;
-flex-direction: column;
-flex-wrap: wrap;
-width: 500px;
-margin: auto;
-align-items: center;
+    #form_cadastro_conf{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 500px;
+    margin: auto;
+    align-items: center;
 }
 #form_cadastro_conf input{
     width: 500px;
@@ -1043,6 +1132,8 @@ align-items: center;
         margin-left: 20px;
     }
     /****** Produto  */
+    /****** receitas  */
+    
 
     /* Login */
     .container_login{
@@ -1099,7 +1190,10 @@ align-items: center;
     
 
     /*perfil 2 e 3*/
-}
+
+
+    
+
 
 
 /****** Tablets  */
@@ -1231,6 +1325,20 @@ align-items: center;
          margin-top: 20px;
      }
      /****** Produto */
+
+     /*receitas*/
+        .flexposts{
+            flex-direction: column;
+        }
+        .postscontainer{
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            width: 300px;
+        }
+    
+     /*receitas*/
      /**perfil1**/
      .direito1,.form_cadaspro {
          display: flex;
@@ -1353,4 +1461,3 @@ align-items: center;
 
 }
 /****** Smartphones  */
-
