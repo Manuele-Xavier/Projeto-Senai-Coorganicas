@@ -34,13 +34,15 @@
 
             <form method="POST" id="form_cadastro_produtos">
                 <h1 class="t_perfil">Cadastrar produtos</h1>
-                <label> <span>Produto:</span>
-                    <input type="text"  aria-label="Digite o seu nome" name="nome" required></input>
-                </label> <br><br>
-                <label> <span>Estado do produto</span>
+                <select name="Produto" class="select_cadastro" >
+                        <option value="Produto" selected disabled>Produto</option>
+                        <option value="valor2">Banana</option>
+                        
+                    </select> <br><br>
+                <label> <span>Cidade</span>
                     <input type="text"  aria-label="Digite o seu sobrenome" name="sobrenome" required></input>
                 </label> <br><br>
-                <label> <span>CNPJ</span>
+                <label> <span>Região</span>
                     <input type="e-mail" aria-label="Digite o seu e-mail" name="e-mail" required></input>
                 </label> <br><br>
                 <label> <span>Validade </span>
@@ -49,7 +51,7 @@
                 <label> <span>Quantidade</span>
                     <input type="password"aria-label="Confirmae a sua senha"name="confirmar_senha" required></input>
                 </label> <br><br>
-                <label> <span>Região</span>
+                <label> <span>Preço por Kg</span>
                     <input type="password"  aria-label="Confirmae a sua senha"name="confirmar_senha" required></input>
                 </label> <br><br>
                 <div class="btns">
