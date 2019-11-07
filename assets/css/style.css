@@ -856,12 +856,15 @@ select{
   }
   .menu_perfil{
     color: var(--cinza-fonte);
-    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     list-style: none;
     line-height: 4.0em; 
+  }
+  .ativo{
+      border-left: solid 2px var(--vermelho) ;
+      margin-left: 3px;
   }
   .direito1{
       display: flex;
@@ -877,6 +880,7 @@ select{
     color: #707070;
     font-size: 1.5em;
     list-style: none;
+    padding-left: 10px;
   }
   .menu_perfil img{
     width: 200px;
@@ -914,13 +918,14 @@ select{
     border-radius:4px;
     border:none;
   }
+  
 /*perfil1*/
 
 /*perfil2 e 3*/
 .direito2{
     display: flex;
     flex-direction: column;
-    width: 80%; 
+    width: 70%; 
     
 }
 .formdi_busca{
@@ -945,10 +950,10 @@ border:none;
    
 }
 .products img{
-    width: 300px;
+    width: 270px;
 }
 .products2{
-    width: 300px;
+    width: 270px;
     -webkit-box-shadow: 4px 4px 4px 0px rgba(204,204,204,1);
     -moz-box-shadow: 4px 4px 4px 0px rgba(204,204,204,1);
     box-shadow: 4px 4px 4px 0px rgba(204,204,204,1);
@@ -967,7 +972,7 @@ border:none;
 display: flex;
 justify-content: center;
 align-items: center;
-width: 300px;
+width: 270px;
 }
 .imp_perfil{
 width: 3vw;
@@ -1032,6 +1037,20 @@ box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
     background-color: #FFFFFF;
     border-radius:4px;
      border:none;
+     -webkit-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+     -moz-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+     box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+    
+}
+.tracado{
+    border-radius:4px;
+    border:none;
+    border-style: dashed;
+    width: 296px;
+    height: 208px;
+    border-color: var(--cinza-fonte);
+    display: flex;
+    justify-content: center;
 }
 .cadas_receita{
     display: flex;
@@ -1067,6 +1086,36 @@ box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
         display: flex;
         justify-content: space-between;
         width: 400px;
+    }
+    .btn_file input{
+        width: 200px;
+        -webkit-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+        -moz-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+        box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+        border-radius: 4px;
+        border:none;
+        background-color: var(--vermelho);
+        height: 40px;
+        
+        
+    }
+    .btn_file ::placeholder{
+        color: #FFFFFF;
+    }
+    .btn_file a{
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+    .btn_file_espaco{
+        display: flex;
+        justify-content: center;
+        width: 300px;
+        padding-top: 30px;
+        
+    }
+    .icon_img {
+        width: 100px;
+        fill: var(--vermelho);
     }
 
 
