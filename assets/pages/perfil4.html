@@ -16,15 +16,11 @@
             <div class="esquerdo">
                 <nav class="menu_perfil">
                     <ul>
-                        <li><a title="Imagem do site Coorgânicas" href=""><img src="../images/hand.svg"></a></li>
-                        <li><a title="Perfil de configuração do site Coorgânicas" href="./PerfilConfig.html">Nome</a>
-                        </li>
-                        <li><a title="Perfil de configuração do site Coorgânicas" href="./perfil4.html">Cadastrar
-                                Receitas</a>
-                        </li>
-                        <li><a title="Meus produtos do site Coorgânicas" href="">Meus Produtos</a></li>
-                        <li><a title="Perfil de configuração do site Coorgânicas" href="./PerfilConfig.html">Minhas
-                                informações</a></li>
+                        <li><a title="Imagem do site Coorgânicas" href=""><img src="../images/casinha.png"></a></li>
+                        <li><a title="Perfil de configuração do site Coorgânicas" href="./PerfilConfig.html">Nome</a></li>
+                        <li class="ativo" ><a title="Perfil de configuração do site Coorgânicas" href="./perfil4.html">Cadastrar Receitas</a></li>
+                        <li ><a title="Meus produtos do site Coorgânicas" href="./perfil3.html">Minhas Reservas</a></li>
+                        <li><a title="Perfil de configuração do site Coorgânicas" href="./PerfilConfig.html">Minhas Informações</a></li>
                         <li><a title="Sair do site Coorgânicas" href="login.html">Sair</a></li>
                     </ul>
                 </nav>
@@ -34,13 +30,14 @@
                 <h1 class="t_perfil">Cadastrar Receitas</h1>
                 <form method="get" id="form_receita">
                     <div class="carde_receita">
-                       
-                        <div class="tracado">  <img src="../images/photo.svg" class="icon_img"></div>
+
+                        <div class="tracado"> <img src="../images/photo.svg" class="icon_img"></div>
                         <div class="btn_file_espaco">
-                                <label > 
-                                    <input type="file" aria-label="Digite o seu nome" name="nome" required  placeholder="Enviar arquivo..." ></input>
-                                </label>
-                    </div>
+                            <label>
+                                <input type="file" aria-label="Digite o seu nome" name="nome" required
+                                    placeholder="Enviar arquivo..."></input>
+                            </label>
+                        </div>
                     </div>
 
                     <div class="cadas_receita">
@@ -48,16 +45,16 @@
                             <input type="text" aria-label="Digite o seu nome" name="nome" required></input>
                         </label>
                         <label class="label_receita"> <span>Descrição da receita:</span>
-                            <input type="text" aria-label="Digite o seu nome" name="nome" required></input>
+                            <textarea name = "Digite o seu nome"  cols="54" rows="10" style="resize: none;"></textarea>
                         </label>
 
                     </div>
                     <div class="espaco_perfils">
-                    <div class="btns_cadastroreceita">
-                        <button type="submit" class="btn"><a href="">Adicionar</a></button>
-                        <button type="reset" class="btn"><a href="">Cancelar</a></button>
+                        <div class="btns_cadastroreceita">
+                            <button type="submit" class="btn"><a href="">Adicionar</a></button>
+                            <button type="reset" class="btn"><a href="">Cancelar</a></button>
+                        </div>
                     </div>
-                </div>
 
                 </form>
 

@@ -27,8 +27,9 @@
                         <li><a title="Quem Somos do site Coorgânicas" href="../pages/quemsomos.html">Quem Somos</a></li>
                         <li><a title="Produtos do site Coorgânicas" href="../pages/produtos.html">Produtos</a></li>
                         <li><a title="Receitas do site Coorganicas" href="receita.html">Receitas</a></li>
-                        <li><a title="Doações do site Coorgânicas" href="">Doações</a></li>
-                        <li><a title="Login/Cadstre-se do site Coorgânicas" href="../pages/login.html">Login / Cadastre-se</a></li>
+                        <!-- <li><a title="Doações do site Coorgânicas" href="">Doações</a></li> -->
+                        <li><a title="Login/Cadstre-se do site Coorgânicas" href="../pages/login.html">Login /
+                                Cadastre-se</a></li>
                     </ul>
                 </nav>
             </div>
@@ -39,13 +40,14 @@
     <main class="banner_login">
         <div class="cotaniner_login">
             <div class="espaco_entrar">
-            <form method="GET" id="form_usuario" class="entrar_login">
-                <label>
-                    <input type="text" placeholder="Usuario:" aria-label="Digitar o Usuario" name="Usuario" required>
-                    <input type="text" placeholder="Senha:" aria-label="Digitar a Senha" name="Usuario" required>
-                    <button type="submit" class="btn">Entrar</button>
-                    <p class="t_login">Não possui cadastro? Inscreva-se</p>
-                </label>
+                <form method="GET" id="form_usuario" class="entrar_login">
+                    <label>
+                        <input type="text" placeholder="Usuario:" aria-label="Digitar o Usuario" name="Usuario"
+                            required>
+                        <input type="text" placeholder="Senha:" aria-label="Digitar a Senha" name="Usuario" required>
+                        <button type="submit" class="btn">Entrar</button>
+                        <p class="t_login">Não possui cadastro? Inscreva-se</p>
+                    </label>
             </div>
             </form>
             <form method="GET" id="form_cadastro" class="cadastro_login">
@@ -83,11 +85,27 @@
                     <input type="text" placeholder="Digite a cidade" aria-label="Digitar a cidade" name="Cidade"
                         required class="in_login">
                 </label>
-                <label class="espaco_span"> <span >CNPJ:</span>
-                    <input type="text" placeholder="Digite o CNPJ" aria-label="Digitar CNPJ" name="CNPJ"
+
+                <label> <span>Endereço:</span>
+                    <input type="text" placeholder="Digite o endereço" aria-label="Digite o endereço" name="Endereço"
+                        required class="in_logine">
+
+                        <label> <span class="c">Nº:</span>
+                            <input type="text" placeholder="" aria-label="Digite o numero" name="Número"
+                                required class="in_loginn">
+                        </label>
+
+                </label>
+
+                <label> <span>Telefone:</span>
+                    <input type="text" placeholder="Digite o telefone" aria-label="Digite o telefone" name="Cidade"
                         required class="in_login">
                 </label>
-                
+                <label class="espaco_span"> <span>CNPJ:</span>
+                    <input type="text" placeholder="Digite o CNPJ" aria-label="Digitar CNPJ" name="CNPJ" required
+                        class="in_login">
+                </label>
+
                 <button type="submit" class="btn"><a href="">Cadastrar</a></button>
             </form>
         </div>
