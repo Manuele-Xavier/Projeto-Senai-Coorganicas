@@ -1,0 +1,194 @@
+
+.banner_login{
+    background-image: url(../images/photo-1490818387583-1baba5e638af\ \(1\).png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+    width: 100%;
+    height: 100%;
+}
+.container_login{
+    display: flex;
+    flex-direction: column;
+    width: 1000vw;
+    
+}
+.entrar_login{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin: auto;
+    width: 1000px;
+    padding-top: 30px;
+    line-height: 3.5em;
+   
+}
+.entrar_login input{
+    width: 200px;
+    height: 40px;
+    border-radius: 4px;
+    border:none;
+}
+.cadastro_login{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 1000px;
+    margin: auto;
+    padding-bottom: 30px;
+    line-height: 3.5em;
+}
+#form_usuario label > input, .btn{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.btn_cadastro{
+    width: 15px;
+    height: 15px;
+
+    
+}
+.enderecon{
+    width: 829px;
+    display: flex;
+   justify-content: center;
+}
+.in_logine{
+    width: 502px;
+    height: 40px;
+    border-radius: 4px;
+    border:none;
+}
+.in_loginn{
+    width: 48px;
+    height: 40px;
+    border-radius: 4px;
+    border:none;
+}
+
+.c{
+    padding-right: 20px;
+    font-size: 1.5em;
+    font-weight: 900;
+    
+}
+
+.in_login{
+    width: 600px;
+    height: 40px;
+    border-radius: 4px;
+    border:none;
+    
+}
+.espaco{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 660px;
+    
+}
+.radius{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 273px;
+    font-size: 1.5em; 
+}
+::placeholder{
+    padding-left: 8px;
+    font-size: 1.2em;
+}
+.cadastro_login span{
+    padding-right: 20px;
+    font-size: 1.5em;
+    font-weight: 900;
+}
+.t_login{
+    padding-left: 95px;
+    font-size: 1.3em; 
+}
+.espaco_span {
+    padding-bottom: 20px;
+}
+
+@media(max-width:1169px){
+    .container_login{
+        width: 800vw;        
+    }
+
+    .entrar_login {
+        width: 800px;
+    }
+
+    .cadastro_login {
+        width: 830px;
+    }
+
+    .banner_login {
+        background-position:center;
+    }
+}
+
+/* celular */
+@media(max-width:845px){
+    .container_login{
+        width: 400vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;        
+    }
+
+    .entrar_login {
+        width: 300px;
+
+    }
+
+    .entrar_login input {
+        width: 310px;
+    }
+    .t_login {
+       padding-left: 50px;
+        
+    }
+
+    
+    .espaco {
+        width: 420px;
+    }
+
+    .radius {
+        width: 250px;
+    }
+
+    .cadastro_login {
+        width:400px;
+    }
+
+    .cadastro_login button {
+        margin-right: 150px;
+    }
+
+    .banner_login {
+        background-position:center;
+    }
+
+    .in_login {
+        width: 380px;
+    }
+
+    .in_logine{
+        width: 380px;
+    }
+
+    .in_loginn{
+        width: 380px;
+    }
+
+    .btn_cadastro_mobile {
+        width: 290px;
+        margin-left: 30px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}

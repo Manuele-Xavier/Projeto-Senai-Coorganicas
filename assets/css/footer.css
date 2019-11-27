@@ -1,0 +1,118 @@
+.container_rodape {
+    width: 1000px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;    
+}
+
+footer {
+    padding-top: 20px;
+    width: 100%;
+    background-color: #D3DADF;
+    
+}
+footer p{
+  font-size: 20px;
+}
+.contatos, .redes_sociais, .projeto {
+    width: 250px;
+    font-size: 1.2em;
+}
+
+footer h3{
+    text-align: center;
+    color: var(--vermelho);
+    font-size: 1.5em;
+}
+
+
+.redesImg  {
+    text-align: center;
+}
+
+.redesImg img {
+    padding: 10px 10px;
+}
+
+
+.projeto p {
+    width: 205px;
+    line-height: 1.5em;
+    padding-left: 25px;
+}
+
+.contatos p {
+    display: flex;
+    align-items: center;
+}
+
+.telefone {
+   display: flex;
+   justify-content: flex-start;
+   padding-left: 20%;
+ 
+}
+
+.telefone img {
+    padding: 10px 10px;
+}
+
+/* Tamanho dos icones do rodapé */
+.svg {
+    height: 25px;
+    width: 25px;
+}
+.copyy{
+  background-color: #BF0404;
+  height: 100%;
+  padding-bottom: 10px;
+}
+/* Copyright */
+.copy {
+    border-top: 1px solid #cccccc; 
+    padding-top: 10px;
+    text-align: center;
+    font-size: 1.1em;
+    color:white;
+}
+/****** Footer */
+
+@media(max-width:1169px){
+    .container_rodape {
+        width: 800px;
+        padding: 20px;
+    }
+}
+
+/* celular */
+@media(max-width:845px){
+    .container_rodape {
+        width: 350px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .container_rodape h3 {
+        text-align: center;
+    }
+
+    .projeto, .contatos, .redes_sociais {
+        padding-top: 30px;
+    }
+
+    .redes_sociais {
+        padding-left: 25px;
+        
+    }
+
+    .projeto p {
+        padding-left:60px; 
+    }
+    /****** Rodapé  */
+
+    /* Footer */
+    footer {
+        padding-top: 0px;
+    }
+}

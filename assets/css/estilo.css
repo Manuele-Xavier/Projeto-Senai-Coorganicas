@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap');
+:root{
+    --fundo:#EFF3F6;
+    --cinza-fonte:#707070;
+    --vermelho:#BF0404;
+    --verde:#89A61F;
+    --laranja:#F29F05;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'Open Sans Condensed', sans-serif;
+    background-color: #EFF3F6;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 1000px;
+}
+.btn{
+    font-weight: 500;
+    border-radius: 4px;
+    -webkit-box-shadow: 1px 1px 1px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 1px 1px 1px 0px rgba(204,204,204,1);
+    box-shadow: 1px 1px 1px 0px rgba(204,204,204,1);
+    background-color: #BF0404;
+    border:none;
+    width: 100px;
+    height: 30px;
+    color:white;
+  }
+  .btn a{
+    color:white;
+    text-decoration: none; 
+  }
+.btn1{
+    font-weight: 500;
+    border-radius: 4px;
+    -webkit-box-shadow: 1px 1px 1px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 1px 1px 1px 0px rgba(204,204,204,1);
+    box-shadow: 1px 1px 1px 0px rgba(204,204,204,1);
+    background-color: var(--laranja);
+    border:none;
+    width: 100px;
+    height: 30px;
+    color:white;
+  }
+  .btn2{
+    font-weight: 500;
+    border-radius: 4px;
+    -webkit-box-shadow: 1px 1px 1px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 1px 1px 1px 0px rgba(204,204,204,1);
+    box-shadow: 1px 1px 1px 0px rgba(204,204,204,1);
+    background-color: var(--verde);
+    border:none;
+    width: 100px;
+    height: 30px;
+    color:white;
+  }
+  .paginacao{
+    display:flex;
+    justify-content:space-around;
+    width:200px;
+    padding:50px 0px;
+  }
+  .paginacao a{
+    text-decoration: none;
+    list-style: none;
+    background-color:#FFFFFF;
+    border-radius:4px;
+    border:none;
+    font-size:1.0em;
+    padding:5px;
+    color:#707070;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+    box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+  }
+
+@media(max-width:845px){
+    .container {
+        flex-direction: column;
+    }
+}

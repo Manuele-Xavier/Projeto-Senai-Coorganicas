@@ -1,0 +1,352 @@
+
+  .direito1{
+      display: flex;
+      justify-content: space-between;
+      margin: auto;
+      width: 70%;
+  }
+  
+ 
+  #form_cadastro_produtos{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 500px;
+    margin: auto;
+    align-items: center;
+    }
+    #form_cadastro_produtos input{
+        width: 500px;
+        height: 50px;
+        border-radius:4px;
+        border:none;
+    }
+    #form_cadastro_produtos input [type="date"] {
+        background-color: #BF0404;
+    }
+    
+    #form_cadastro_produtos span{
+        font-size: 1.3em;
+    }
+  .t_perfil{
+      text-align: center;
+      padding-bottom: 30px;
+
+  }
+  .select_cadastro{
+    width: 500px;
+    height: 50px;
+    border-radius:4px;
+    border:none;
+  }
+  
+/*perfil1*/
+
+/*perfil2 e 3*/
+.direito2{
+    display: flex;
+    flex-direction: column;
+    width: 70%; 
+    
+}
+.formdi_busca{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formdi_busca input{
+width: 50vw;
+height: 6vh;
+border-radius: 4px;
+border:none;
+}
+.products{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    flex-wrap: wrap;
+    width: 86%;
+    margin: auto
+   
+}
+.products img{
+    width: 270px;
+}
+.products2{
+    width: 270px;
+    -webkit-box-shadow: 4px 4px 4px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 4px 4px 4px 0px rgba(204,204,204,1);
+    box-shadow: 4px 4px 4px 0px rgba(204,204,204,1);
+    margin-bottom: 30px;
+    margin-top: 30px;
+    background-color:white;
+    border-radius: 4px;
+    padding-bottom: 10px;
+   
+}
+
+.t_products{
+    text-align: center;
+}
+.espaco_inputi{
+display: flex;
+justify-content: center;
+align-items: center;
+width: 270px;
+}
+.imp_perfil{
+width: 3vw;
+height: 4vh;
+border-radius: 4px;
+border: none;
+-webkit-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+-moz-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+}
+.bnt_mais{
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+    box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+    border-radius: 4px;
+    border:none;
+    background-color: var(--verde);
+    width: 3vh;
+    height: 4vh;
+}
+.bnt_menos{
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+    box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+    border-radius: 4px;
+    border:none;
+    background-color: var(--laranja);
+    width: 3vh;
+    height: 4vh
+
+}
+.btn_perfilespa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    padding: 10px 0px;
+}
+.direito3{
+    width:70%;
+   
+}
+/*perfil 4*/
+.direito3{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#form_receita{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.img_cadas_receita{
+    width: 300px;
+}
+.carde_receita{
+    width: 300px;
+    height: 315px;
+    background-color: #FFFFFF;
+    border-radius:4px;
+     border:none;
+     -webkit-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+     -moz-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+     box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+    
+}
+.tracado{
+    border-radius:4px;
+    border:none;
+    border-style: dashed;
+    width: 296px;
+    height: 208px;
+    border-color: var(--cinza-fonte);
+    display: flex;
+    justify-content: center;
+}
+.cadas_receita{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    padding-top: 35px;
+
+}
+.label_receita input{
+    width: 400px;
+    height: 300px;
+    border-radius:4px;
+    border:none;
+    font-size: 1.5em;
+}
+
+    .label_receita2 input{
+        width: 400px;
+        height: 50px;
+        border-radius:4px;
+        border:none;
+    }
+    #form_receita span{
+        font-size: 1.5em;
+    }
+
+    .label_receita, .label_receita2{
+        margin-bottom: 30px;
+    }
+    .btns_cadastroreceita{
+        display: flex;
+        justify-content: space-between;
+        width: 400px;
+    }
+    .btn_file input{
+        width: 200px;
+        -webkit-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+        -moz-box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+        box-shadow: 5px 5px 5px 0px rgba(204,204,204,1);
+        border-radius: 4px;
+        border:none;
+        background-color: var(--vermelho);
+        height: 40px;
+        
+        
+    }
+    .btn_file ::placeholder{
+        color: #FFFFFF;
+    }
+    .btn_file a{
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+    .btn_file_espaco{
+        display: flex;
+        justify-content: center;
+        width: 300px;
+        padding-top: 30px;
+        
+    }
+    .icon_img {
+        width: 100px;
+        fill: var(--vermelho);
+    }
+
+
+/*perfil2 e 3*/
+/* perfil configuração*/
+
+.btns{
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+}
+
+    #form_cadastro_conf{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 500px;
+    margin: auto;
+    align-items: center;
+}
+#form_cadastro_conf input{
+    width: 500px;
+    height: 50px;
+    border-radius:4px;
+    border:none;
+}
+#form_cadastro_conf span{
+    font-size: 1.3em;
+}
+/* perfil configuração*/
+
+@media(max-width:1169px){
+    .container_perfil,.form_cadaspro {
+        width:800px;
+
+    }
+    
+    #formcadastro input{
+        width: 200px;
+
+    }
+    
+
+    
+    /*perfil1*/
+
+    /*perfil 2 e 3*/
+
+    .direito2,.products{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 800px;
+        
+        
+    }
+}
+
+/* celular */
+@media(max-width:845px){
+    #form_cadastro_produtos input{
+        width: 300px;
+    }
+
+    .btns{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 300px;
+        padding-bottom: 60px;
+    }
+    
+    /**perfil1**/
+    /**perfil2e3**/
+
+   
+   .container_perfil{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       margin: auto;
+       width: 300px;
+   }
+   .products{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       width: 40%
+   }
+   .formdi_busca input{
+       width: 80vw;
+   }
+   .imp_perfil{
+       width: 10vw;
+   }
+   /**perfil2e3**/
+   /**perfil 4**/
+   .label_receita2 input, .label_receita input {
+       width: 300px;
+   }
+   .cadas_receita{
+       width: 300px;
+   }
+   /**perfil 4**/
+
+   /**perfilconfiguração**/
+   .configuracao, #form_cadastro_conf input {
+       width: 300px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+}

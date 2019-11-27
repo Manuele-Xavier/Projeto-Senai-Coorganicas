@@ -1,0 +1,105 @@
+
+.postscontainer{
+    height: auto;
+    background-position: 50% 50%;
+    background-size: auto;
+     /* width: 1000px; */
+    /* margin: 260px; */
+}
+.flexposts{
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* margin-left: 82px;
+    margin-left: 176px;
+    margin-right: 176px; */
+    width: 1000px;
+    margin:auto;
+    align-items: center;
+}
+.tituloposts1{
+    color: var(--vermelho);
+    font-weight: bold;
+    font-size: 2.1em;
+    text-align: center;
+    padding: 30px 0px
+}
+.tituloposts{
+    padding: 20px 0px;
+    color: var(--laranja);
+    font-weight: bold;
+    font-size: 3em;
+    text-align: center;
+}
+.cardcestas.posts{
+    height: 315px;
+}
+.cardcestas{
+    width: 300px;
+    -webkit-box-shadow: 4px 4px 4px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 4px 4px 4px 0px rgba(204,204,204,1);
+    box-shadow: 4px 4px 4px 0px rgba(204,204,204,1);
+    margin-bottom: 50px;
+    background-color:white;
+    border-radius: 4px;
+}
+.imgcestas{
+    max-width: 100%;
+    display: inline-block;
+}
+.link{
+    text-decoration: none;
+}
+.block{
+    max-width: 100%;
+    display: inline-block;
+}
+.titulocestas{
+    margin-top: 12px;
+    color: var(--cinza-fonte);
+    font-size: 1.3em;
+    text-decoration: none;
+    text-align: -webkit-center;
+}
+.btnmercado{
+    display: block;
+    margin: auto ;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 0px rgba(204,204,204,1);
+    background-color: var(--laranja);
+    width: 186px;
+    height: 18px;
+    color:white;
+    text-decoration: none;
+}
+.espacamento_pag{
+    display: flex;
+    justify-content: center;
+    width: 1000px;
+}
+
+@media(max-width:1169px){
+    .flexposts{
+        width: 710px;
+    }
+}
+
+/* celular */
+@media(max-width:845px){
+    .flexposts{
+        width: 300px;
+    }
+    .postscontainer{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        width: 300px;
+    }
+}
